@@ -1,0 +1,12 @@
+.bf5b091d1d {
+    margin-block-end: var(--bui_spacing_4x);
+    margin-block-start: var(--bui_spacing_4x)
+}
+
+@media (min-width:576px) {
+    .bf5b091d1d {
+        margin-block-start: 0
+    }
+}
+
+/*# sourceMappingURL=https://istatic.booking.com/internal-static/capla/static/css/f41dcaf5.f9e48860.chunk.css.map*/

@@ -1,0 +1,86 @@
+@media not (min-width:1024px) {
+    .f8c2ff6c78 {
+        border-radius: 0
+    }
+    .f8c2ff6c78:not(:last-child) {
+        border-block-end: 0
+    }
+    .f6087f0e63:first-of-type {
+        border: 0
+    }
+}
+
+.f8c2ff6c78 {
+    flex: 1 1
+}
+
+.bb2378923a {
+    border: var(--bui_border_width_100) solid var(--bui_color_border_alt);
+    border-radius: var(--bui_border_radius_200);
+    background-color: var(--bui_color_background_base_alt);
+    flex: 1 1
+}
+
+.c3f0eaa626 {
+    padding: var(--bui_spacing_2x);
+    border-radius: var(--bui_border_radius_100);
+    background-color: var(--bui_color_action_background_alt)
+}
+
+.ae0ecebe1e {
+    border: var(--bui_border_width_100) solid var(--bui_color_border_alt);
+    border-inline-start: none;
+    border-inline-end: none;
+    background-color: var(--bui_color_background_elevation_one)
+}
+
+@media not (min-width:1024px) {
+    .c73ed867e7 {
+        background-color: var(--bui_color_background_elevation_one);
+        padding: var(--bui_spacing_4x);
+        padding-block-end: 0;
+        border-block-start: var(--bui_border_width_100) solid var(--bui_color_border_alt)
+    }
+}
+
+@media (min-width:1024px) {
+    .c73ed867e7 {
+        width: 100%
+    }
+}
+
+.b8f3ed733d {
+    margin-block-end: var(--bui_spacing_8x)
+}
+
+.febf12e0ea {
+    margin-block-end: var(--bui_spacing_6x)
+}
+
+@media not (min-width:1024px) {
+    .b8f3ed733d {
+        margin-block-end: var(--bui_spacing_4x)
+    }
+}
+
+.bb67b22c43 {
+    margin-block-end: 0
+}
+
+.bac91877e7 {
+    margin-block-end: var(--bui_spacing_8x)
+}
+
+.cee6246116>div:empty {
+    display: none
+}
+
+.cee6246116>div>div:only-child:empty {
+    display: none
+}
+
+.cc9de263ac:has([id^=google_ads_iframe]:not(:empty)) {
+    margin-block-start: var(--bui_spacing_8x)
+}
+
+/*# sourceMappingURL=https://istatic.booking.com/internal-static/capla/static/css/a74f71eb.0e320656.chunk.css.map*/
