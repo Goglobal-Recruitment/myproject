@@ -1,0 +1,35 @@
+name: Daily fetch external data
+
+# runs once per day at 04:00 SAST (UTC+2). Cron uses UTC.
+on:
+  schedule:
+    - cron: '0 2 * * *'   # runs daily at 02:00 UTC = 04:00 SAST
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Fetch data and write file
+        run: node .github/scripts/fetch-and-save.js
+        env:
+          API_KEY: ${{ secrets.MY_API_KEY }}  # if your source needs a key
+
+      - name: Commit generated file
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions
+          author_email: actions@github.com
+          message: "chore: update data.json (daily)"
