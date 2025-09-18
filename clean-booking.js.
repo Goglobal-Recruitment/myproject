@@ -1,0 +1,34 @@
+const fs = require('fs');
+const path = require('path');
+
+const folder = './'; // root of your project
+
+// Regex patterns
+const patterns = [
+  { regex: /https?:\/\/(www\.)?booking\.com[^\s"'<>]*/g, replace: '#' },
+  { regex: /<script[^>]*src="https?:\/\/(www\.)?booking\.com[^"]*"><\/script>/g, replace: '' },
+  { regex: /<link[^>]*href="https?:\/\/(www\.)?booking\.com[^"]*"[^>]*>/g, replace: '' },
+  { regex: /Booking\.com/g, replace: 'GoGlobal Travel' },
+  { regex: /<form[^>]*action="https?:\/\/(www\.)?booking\.com[^"]*"[^>]*>/g, replace: '<form action="booking-process.html">' }
+];
+
+// Recursive function to process all files
+function processDir(dir) {
+  fs.readdirSync(dir).forEach(file => {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      processDir(fullPath);
+    } else if (/\.(html|js|css)$/.test(file)) {
+      let content = fs.readFileSync(fullPath, 'utf8');
+      patterns.forEach(p => {
+        content = content.replace(p.regex, p.replace);
+      });
+      fs.writeFileSync(fullPath, content, 'utf8');
+      console.log(`Processed: ${fullPath}`);
+    }
+  });
+}
+
+processDir(folder);
+console.log('All Booking.com references cleaned!');
