@@ -1,0 +1,6 @@
+Find (Regex),Replace,Description
+"https?:\\/\\/(www\\.)?booking\\.com[^\s"'<>]*","#","Replace all external Booking.com URLs"
+"<script[^>]*src=\"https?:\\/\\/(www\\.)?booking\\.com[^"]*\"><\\/script>","","Remove Booking.com scripts"
+"<link[^>]*href=\"https?:\\/\\/(www\\.)?booking\\.com[^"]*\"[^>]*>","","Remove Booking.com CSS links"
+"Booking\\.com","GoGlobal Travel","Replace text mentions"
+"<form[^>]*action=\"https?:\\/\\/(www\\.)?booking\\.com[^"]*\"[^>]*>","<form action=\"booking-process.html\">","Redirect forms to local page"
