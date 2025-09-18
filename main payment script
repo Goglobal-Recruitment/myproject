@@ -1,0 +1,91 @@
+<!-- Payment Section -->
+<div id="payment-section">
+  <!-- Voucher Input -->
+  <div id="voucher-section">
+    <label for="voucher">Voucher Code:</label>
+    <input type="text" id="voucher" placeholder="Enter voucher code">
+    <button type="button" onclick="applyVoucher()">Apply</button>
+    <p id="voucher-message" style="color: green;"></p>
+  </div>
+
+  <!-- Total Amount Display -->
+  <p>Total Amount: <span id="total-amount">125000</span> ZAR</p>
+
+  <!-- Currency Selector -->
+  <label for="currency">Currency:</label>
+  <select id="currency" onchange="updateTotalCurrency()">
+    <option value="ZAR" selected>ZAR</option>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+  </select>
+
+  <!-- Paystack Button -->
+  <button type="button" onclick="payWithPaystack()">Pay Now</button>
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+  // Voucher Codes
+  const vouchers = {
+    "DISCOUNT10": 10,
+    "SAVE50": 50
+  };
+
+  // Base price and compulsory travel insurance
+  let basePrice = 125000; // Example: flight + other costs in ZAR
+  const insuranceUSD = 600;
+
+  // Currency conversion rates (update as needed)
+  const rates = {
+    ZAR: 1,
+    USD: 20,  // Example: 1 USD = 20 ZAR
+    EUR: 22   // Example: 1 EUR = 22 ZAR
+  };
+
+  let discountPercent = 0;
+  let selectedCurrency = 'ZAR';
+
+  function applyVoucher() {
+    const code = document.getElementById('voucher').value.trim().toUpperCase();
+    const message = document.getElementById('voucher-message');
+    discountPercent = vouchers[code] || 0;
+
+    if(discountPercent > 0){
+      message.style.color = 'green';
+      message.textContent = `Voucher applied! ${discountPercent}% discount.`;
+    } else {
+      message.style.color = 'red';
+      message.textContent = 'Invalid voucher code.';
+    }
+    updateTotalCurrency();
+  }
+
+  function updateTotalCurrency() {
+    selectedCurrency = document.getElementById('currency').value;
+    let totalZAR = basePrice + insuranceUSD * rates['ZAR']/rates['USD']; // insurance converted to ZAR
+    totalZAR = totalZAR * (1 - discountPercent / 100);
+    let displayTotal = totalZAR / rates[selectedCurrency]; // convert to selected currency
+    document.getElementById('total-amount').textContent = displayTotal.toFixed(2) + ' ' + selectedCurrency;
+  }
+
+  function payWithPaystack() {
+    const total = document.getElementById('total-amount').textContent.split(' ')[0];
+    const handler = PaystackPop.setup({
+      key: 'YOUR_PAYSTACK_PUBLIC_KEY', // Replace later
+      email: 'customer@example.com', // Replace with actual email from form
+      amount: Math.round(total * 100), // in smallest currency unit
+      currency: selectedCurrency,
+      callback: function(response){
+        alert('Payment successful. Reference: ' + response.reference);
+        // You can redirect to a success page here
+      },
+      onClose: function(){
+        alert('Payment cancelled.');
+      }
+    });
+    handler.openIframe();
+  }
+
+  // Initialize total on page load
+  updateTotalCurrency();
+</script>
