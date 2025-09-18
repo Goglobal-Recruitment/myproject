@@ -1,0 +1,26 @@
+name: Update Live Data with Conversion
+
+on:
+  schedule:
+    - cron: '0 19 * * *'  # 19:00 UTC daily
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install Dependencies
+        run: npm install node-fetch@2
+      - name: Run Fetch Script
+        run: node scripts/fetch-live-data.js
+      - name: Commit & Push Updated Data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add resources/live-data.json
+          git commit -m "Update live data with ZAR conversion"
+          git push
