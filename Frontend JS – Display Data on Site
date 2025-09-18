@@ -1,0 +1,23 @@
+<div id="live-data-container"></div>
+
+<script>
+fetch('/resources/live-data.json')
+  .then(res => res.json())
+  .then(data => {
+      const container = document.getElementById('live-data-container');
+      container.innerHTML = ''; // Clear container
+
+      // Example: loop through data and display items
+      data.items.forEach(item => {
+          const div = document.createElement('div');
+          div.classList.add('live-item');
+          div.innerHTML = `
+              <h3>${item.title}</h3>
+              <p>Price: ${item.price}</p>
+              <p>${item.description}</p>
+          `;
+          container.appendChild(div);
+      });
+  })
+  .catch(err => console.error('Error loading live data:', err));
+</script>
