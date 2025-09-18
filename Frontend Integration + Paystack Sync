@@ -1,0 +1,47 @@
+<button type="button" id="payButton">Pay Now</button>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+document.getElementById('payButton').addEventListener('click', async () => {
+    // Load live data
+    const data = await fetch('/resources/live-data.json').then(res => res.json());
+
+    // Example: pick the first item or use a selected item
+    const item = data.items[0];
+    const userEmail = "user@example.com"; // dynamically from your system
+    const baseAmountZAR = item.priceZAR || 1000;
+    const insuranceZAR = item.insuranceZAR || 600 * 20; // fallback
+    const totalAmountZAR = baseAmountZAR + insuranceZAR;
+
+    // Open Paystack modal
+    var handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY',
+        email: userEmail,
+        amount: totalAmountZAR * 100,
+        currency: 'ZAR',
+        ref: 'TXN_' + Math.floor(Math.random() * 1000000000),
+        metadata: {
+            custom_fields: [
+                { display_name: "Business", variable_name: "business_name", value: "Bookings" },
+                { display_name: "Travel Insurance (ZAR)", variable_name: "insurance_amount", value: insuranceZAR },
+                { display_name: "Voucher Code", variable_name: "voucher_code", value: "" }
+            ]
+        },
+        onClose: function() { alert('Transaction was not completed.'); },
+        callback: function(response) {
+            const voucher = response.metadata.custom_fields.find(f => f.variable_name === "voucher_code").value.toUpperCase();
+            let discount = 0;
+            if (voucher === "DISCOUNT15") discount = totalAmountZAR * 0.15;
+            else if (voucher === "SAVE100") discount = 100;
+            else if (voucher === "WELCOME20") discount = totalAmountZAR * 0.20;
+
+            const finalAmount = totalAmountZAR - discount;
+
+            alert(`Payment successful! Reference: ${response.reference}\nFinal Amount Paid: ZAR ${finalAmount.toFixed(2)}`);
+            // Optional: send to backend for verification
+        }
+    });
+
+    handler.openIframe();
+});
+</script>
