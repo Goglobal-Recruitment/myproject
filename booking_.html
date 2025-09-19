@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - Signup/Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f2f5;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      display: block;
+      width: 250px;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0071c2;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Booking- Account</h1>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="login()">Login</button>
+    <p id="status"></p>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      sendEmailVerification, 
+      onAuthStateChanged 
+    } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCo1vcjcROwjaKAMiAS_HXu36jMThCeS4k",
+      authDomain: "booking-86bdb.firebaseapp.com",
+      projectId: "booking-86bdb",
+      storageBucket: "booking-86bdb.firebasestorage.app",
+      messagingSenderId: "7030019594",
+      appId: "1:7030019594:web:bd55faefee324f8ab2b1f3",
+      measurementId: "G-QPX46SZ385"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+
+    const statusText = document.getElementById("status");
+
+    // Signup function
+    window.signUp = function() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          sendEmailVerification(userCredential.user);
+          statusText.textContent = "Account created! Check your email to verify.";
+        })
+        .catch((error) => {
+          statusText.textContent = `Error: ${error.message}`;
+        });
+    };
+
+    // Login function
+    window.login = function() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          if (userCredential.user.emailVerified) {
+            statusText.textContent = "Login successful!";
+          } else {
+            statusText.textContent = "Please verify your email before logging in.";
+          }
+        })
+        .catch((error) => {
+          statusText.textContent = `Error: ${error.message}`;
+        });
+    };
+
+    // Keep user logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user && user.emailVerified) {
+        statusText.textContent = `Logged in as: ${user.email}`;
+      }
+    });
+  </script>
+
+</body>
+  </html>
