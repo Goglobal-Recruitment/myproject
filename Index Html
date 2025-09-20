@@ -8,6 +8,26 @@
 </head>
 <body>
 
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="currency-selector">
+      <label for="currency">Currency:</label>
+      <select id="currency" name="currency">
+        <option value="ZAR" selected>ZAR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="AUD">AUD</option>
+        <option value="CAD">CAD</option>
+        <option value="JPY">JPY</option>
+        <!-- Add more currencies as needed -->
+      </select>
+    </div>
+    <a href="#">List your property</a>
+    <button class="btn-outline">Register</button>
+    <button class="btn-primary">Sign in</button>
+  </div>
+
   <!-- Header / Navbar -->
   <header>
     <div class="logo">BookingClone</div>
@@ -32,19 +52,20 @@
     <p>Search deals on hotels, homes, and much more...</p>
 
     <form class="search-box">
-      <input type="text" placeholder="Destination">
-      <input type="date" placeholder="Check-in">
-      <input type="date" placeholder="Check-out">
+      <input type="text" placeholder="Where are you going?">
+      <input type="date" placeholder="Check-in date">
+      <input type="date" placeholder="Check-out date">
       <select>
-        <option>2 adults, 1 room</option>
-        <option>1 adult, 1 room</option>
-        <option>2 adults, 2 rooms</option>
+        <option>2 adults · 0 children · 1 room</option>
+        <option>1 adult · 0 children · 1 room</option>
+        <option>2 adults · 2 rooms</option>
       </select>
       <button type="submit" class="btn-primary">Search</button>
+      <label><input type="checkbox"> Add flights to my search</label>
     </form>
   </section>
 
-  <!-- Offers Section -->
+  <!-- Existing Offers Section (kept from your current index) -->
   <section class="offers">
     <h2>Offers</h2>
     <div class="offer-cards">
@@ -61,18 +82,46 @@
     </div>
   </section>
 
-  <!-- Destinations Section -->
-  <section class="destinations">
-    <h2>Explore South Africa</h2>
-    <div class="destination-grid">
-      <div class="destination-card">Cape Town<br><small>2,543 properties</small></div>
-      <div class="destination-card">Durban<br><small>1,298 properties</small></div>
-      <div class="destination-card">Johannesburg<br><small>1,892 properties</small></div>
-      <div class="destination-card">Pretoria<br><small>743 properties</small></div>
+  <!-- New Promotions / Late Escape / Vacation Rentals -->
+  <section class="promotions">
+    <h2>Promotions, deals, and special offers for you</h2>
+    <div class="offer-cards">
+      <div class="offer-card">
+        <h3>Quick escape, quality time</h3>
+        <p>Save up to 20% with a Getaway Deal</p>
+        <button class="btn-outline">Save on stays</button>
+      </div>
+      <div class="offer-card">
+        <h3>Late Escape Deals</h3>
+        <p>Squeeze out the last bit of sun with at least 15% off</p>
+        <button class="btn-outline">Find deals</button>
+      </div>
+      <div class="offer-card">
+        <h3>Vacation rentals</h3>
+        <p>Choose from houses, villas, cabins, and more</p>
+        <button class="btn-outline">Book yours</button>
+      </div>
     </div>
   </section>
 
-  <!-- Deals Section -->
+  <!-- Destinations Section (expanded with all cities) -->
+  <section class="destinations">
+    <h2>Explore South Africa</h2>
+    <div class="destination-grid">
+      <div class="destination-card">Cape Town<br><small>7,439 properties</small></div>
+      <div class="destination-card">Durban<br><small>1,979 properties</small></div>
+      <div class="destination-card">Johannesburg<br><small>3,041 properties</small></div>
+      <div class="destination-card">Pretoria<br><small>1,617 properties</small></div>
+      <div class="destination-card">Bloemfontein<br><small>496 properties</small></div>
+      <div class="destination-card">Ballito<br><small>1,426 properties</small></div>
+      <div class="destination-card">East London<br><small>510 properties</small></div>
+      <div class="destination-card">Port Elizabeth<br><small>287 properties</small></div>
+      <div class="destination-card">Kempton Park<br><small>252 properties</small></div>
+      <div class="destination-card">Midrand<br><small>869 properties</small></div>
+    </div>
+  </section>
+
+  <!-- Existing Deals Section (kept from your current index) -->
   <section class="deals">
     <h2>Deals for the weekend</h2>
     <div class="deal-cards">
