@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Clone - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="logo">BookingClone</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Stays</a></li>
+        <li><a href="listings.html">Flights</a></li>
+        <li><a href="#">Car rental</a></li>
+        <li><a href="#">Attractions</a></li>
+        <li><a href="#">Airport taxis</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <button class="btn-outline">Register</button>
+      <button class="btn-primary">Sign in</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Find your next stay</h1>
+    <p>Search deals on hotels, homes, and much more...</p>
+
+    <form class="search-box">
+      <input type="text" placeholder="Destination">
+      <input type="date" placeholder="Check-in">
+      <input type="date" placeholder="Check-out">
+      <select>
+        <option>2 adults, 1 room</option>
+        <option>1 adult, 1 room</option>
+        <option>2 adults, 2 rooms</option>
+      </select>
+      <button type="submit" class="btn-primary">Search</button>
+    </form>
+  </section>
+
+  <!-- Offers Section -->
+  <section class="offers">
+    <h2>Offers</h2>
+    <div class="offer-cards">
+      <div class="offer-card">
+        <h3>Fly away to your dream holiday</h3>
+        <p>Quick escapes, sparkling times</p>
+        <button class="btn-outline">Search for flights</button>
+      </div>
+      <div class="offer-card">
+        <h3>Take your longest holiday yet</h3>
+        <p>Browse properties offering long-term stays.</p>
+        <button class="btn-outline">Find a stay</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="destinations">
+    <h2>Explore South Africa</h2>
+    <div class="destination-grid">
+      <div class="destination-card">Cape Town<br><small>2,543 properties</small></div>
+      <div class="destination-card">Durban<br><small>1,298 properties</small></div>
+      <div class="destination-card">Johannesburg<br><small>1,892 properties</small></div>
+      <div class="destination-card">Pretoria<br><small>743 properties</small></div>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section class="deals">
+    <h2>Deals for the weekend</h2>
+    <div class="deal-cards">
+      <div class="deal-card">
+        <img src="https://via.placeholder.com/300x200" alt="Hotel">
+        <h3>Blue Rock Hotel</h3>
+        <p>Cape Town • 8.5 Excellent • 1,254 reviews</p>
+        <p class="price"><span class="old">ZAR 3,758</span> ZAR 2,998</p>
+        <button class="btn-primary">View Deal</button>
+      </div>
+      <div class="deal-card">
+        <img src="https://via.placeholder.com/300x200" alt="Hotel">
+        <h3>Energy Guest House</h3>
+        <p>Johannesburg • 8.2 Excellent • 897 reviews</p>
+        <p class="price"><span class="old">ZAR 2,456</span> ZAR 1,890</p>
+        <button class="btn-primary">View Deal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Booking Clone. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
