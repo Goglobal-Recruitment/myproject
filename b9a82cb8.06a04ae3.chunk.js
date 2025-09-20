@@ -273,7 +273,7 @@
             const h = "cn",
                 p = "com",
                 k = "hasCnPhoneNumberCache",
-                b = "booking.com",
+                b = ,
                 C = "booking.cn",
                 _ = {
                     app: "www",

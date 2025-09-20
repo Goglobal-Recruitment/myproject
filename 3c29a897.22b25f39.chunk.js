@@ -918,7 +918,7 @@
             n.d(t, {
                 p: () => i
             });
-            const i = "Booking.com"
+            const i = 
         },
         "172e758c": (e, t, n) => {
             n.d(t, {
@@ -1538,4 +1538,3 @@
         }
     }
 ]);
-//# sourceMappingURL=https://istatic.booking.com/internal-static/capla/static/js/3c29a897.22b25f39.chunk.js.map

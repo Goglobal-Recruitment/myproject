@@ -2527,7 +2527,7 @@
             const _t = e => {
                     try {
                         const t = new URL(e).hostname.toLowerCase();
-                        return "booking.com" !== t && !t.endsWith(".booking.com")
+                        return  !== t && !t.endsWith(".booking.com")
                     } catch {
                         return !0
                     }

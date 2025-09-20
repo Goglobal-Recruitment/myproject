@@ -207,7 +207,7 @@
                 "@type": "WebSite",
                 "@id": "https://www.booking.com/#/schema/WebSite/1",
                 url: "https://www.booking.com",
-                name: "Booking.com",
+                name: ,
                 description: "Explore the world with Booking.com. Big savings on homes, hotels, flights, car rentals, taxis, and attractions \u2013 build your perfect trip on any budget.",
                 publisher: {
                     "@id": "https://www.booking.com/#/schema/Organization/1"
@@ -226,7 +226,7 @@
             }, {
                 "@type": ["Corporation", "Brand"],
                 "@id": "https://www.booking.com/#/schema/Organization/1",
-                name: "Booking.com",
+                name: ,
                 legalName: "Booking.com B.V.",
                 alternateName: "Booking.com B.V.",
                 vatID: "NL805734958B01",

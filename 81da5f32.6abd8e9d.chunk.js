@@ -1357,7 +1357,7 @@
                     }, i().createElement(c.Trans, {
                         tag: "flights_atol_footer_disclaimer",
                         variables: {
-                            b_companyname: "Booking.com",
+                            b_companyname: ,
                             link_atol: "<0/>"
                         },
                         components: [i().createElement(N.Link, {
@@ -1401,7 +1401,7 @@
                 ge = n("8086f2c6"),
                 me = n("2c3f5609");
             const ve = [{
-                company: "Booking.com",
+                company: ,
                 logo: te.Z
             }, {
                 company: "Priceline.com",
@@ -1768,7 +1768,7 @@
             const g = "cn",
                 m = "com",
                 v = "hasCnPhoneNumberCache",
-                b = "booking.com",
+                b = ,
                 _ = "booking.cn",
                 y = {
                     app: "www",
@@ -2034,7 +2034,7 @@
                 const {
                     translate: t
                 } = (0, a.useTranslations)();
-                return (0, r.useMemo)((() => e === i.c.AIRPORT_TAXIS || e === i.c.CARS ? "Booking.com Transport Ltd" : (0, o.Kq)() ? t("cn_b_company_name") : "Booking.com"), [t, e])
+                return (0, r.useMemo)((() => e === i.c.AIRPORT_TAXIS || e === i.c.CARS ? "Booking.com Transport Ltd" : (0, o.Kq)() ? t("cn_b_company_name") : ), [t, e])
             }
         },
         "066c6f53": (e, t, n) => {

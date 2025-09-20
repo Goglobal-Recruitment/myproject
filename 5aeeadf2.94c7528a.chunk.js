@@ -6817,7 +6817,7 @@
             function ie(e) {
                 return "undefined" !== typeof e && null !== e
             }! function(e) {
-                e.B_COM = "Booking.com"
+                e.B_COM = 
             }(X || (X = {})),
             function(e) {
                 e.STAYS = "stays", e.FLIGHTS = "flights", e.PACKAGES = "packages", e.CAR_RENTALS = "car_rentals", e.ATTRACTIONS = "attractions", e.AIRPORT_TAXI = "airport_taxi"

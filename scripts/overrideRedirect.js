@@ -4,9 +4,7 @@
     window.location.href = "payment.html";
   };
 
-  const isBlockedPaymentURL = (url) => {
-    return url.includes("booking.com/checkout/payment") || url.includes("flights.booking.com/checkout/payment");
-  };
+ 
 
   // Intercept JS redirects
   const originalAssign = window.location.assign;
