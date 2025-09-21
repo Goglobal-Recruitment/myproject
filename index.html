@@ -1,4 +1,54 @@
 <!DOCTYPE html>
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="currency-dropdown">
+    <select id="currency" name="currency">
+      <option value="ZAR" selected>ZAR</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="AUD">AUD</option>
+      <option value="CAD">CAD</option>
+      <option value="JPY">JPY</option>
+      <!-- add more currencies as needed -->
+    </select>
+  </div>
+  <a href="#">List your property</a>
+  <button class="btn-outline">Register</button>
+  <button class="btn-primary">Sign in</button>
+</div>
+
+<!-- ===== NAV BAR ===== -->
+<div class="nav-bar">
+  <ul>
+    <li class="active"><i class="fa fa-bed"></i> Stays</li>
+    <li><i class="fa fa-plane"></i> Flights</li>
+    <li><i class="fa fa-car"></i> Car rental</li>
+    <li><i class="fa fa-ticket"></i> Attractions</li>
+    <li><i class="fa fa-taxi"></i> Airport taxis</li>
+  </ul>
+</div>
+
+<!-- ===== HERO / SEARCH ===== -->
+<div class="hero-section">
+  <h1>Find your next stay</h1>
+  <p>Search deals on hotels, homes, and much more...</p>
+  <form class="search-box">
+    <input type="text" placeholder="Where are you going?" />
+    <input type="date" placeholder="Check-in date" />
+    <input type="date" placeholder="Check-out date" />
+    <select>
+      <option>2 adults · 0 children · 1 room</option>
+    </select>
+    <button type="submit" class="btn-search">Search</button>
+  </form>
+  <label class="add-flights">
+    <input type="checkbox" /> Add flights to my search
+  </label>
+</div>
+
+
+
 <!--
 You know you could be getting paid to poke around in our code?
 We're hiring designers and developers to work in Amsterdam:
