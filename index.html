@@ -1,231 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Mirror</title>
-    <!-- Google Fonts to match Booking.com -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { background-color: #fff; color: #222; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        /* Header */
-        header {
-            background-color: #003580;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        header .logo { font-weight: 700; font-size: 1.5rem; color: white; }
-        header nav { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-        header nav a { color: white; font-weight: 500; }
-        header nav .btn { background-color: #0071c2; padding: 6px 12px; border-radius: 4px; }
-        header nav .btn:hover { background-color: #005ea3; }
-
-        /* Hero Section */
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 20px 50px;
-            text-align: center;
-        }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
-        .search-box {
-            background: rgba(255,255,255,0.95);
-            padding: 20px;
-            border-radius: 8px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .search-box input, .search-box select {
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            min-width: 150px;
-            font-size: 1rem;
-        }
-        .search-box button {
-            background-color: #0071c2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .search-box button:hover { background-color: #005ea3; }
-
-        /* Section Titles */
-        section h2 {
-            color: #003580;
-            margin: 40px 20px 20px;
-            font-size: 2rem;
-        }
-
-        /* Cards */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 0 20px 40px;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 15px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-content h3 { color: #003580; font-size: 1.2rem; margin-bottom: 5px; }
-        .card-content p { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
-        .card-content .rating { font-weight: 700; color: #0071c2; }
-
-        /* Footer */
-        footer {
-            background-color: #f7f7f7;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        /* Responsive */
-        @media(max-width:768px){
-            .hero h1 { font-size: 2rem; }
-            .search-box { flex-direction: column; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking.com Mirror</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #222;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-weight: 500;
+      margin: 5px 0;
+    }
+    p {
+      margin: 0;
+    }
+    .section {
+      padding: 40px 0;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: #003580;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+    /* Header */
+    header {
+      background-color: #003580;
+      color: #fff;
+      padding: 10px 0;
+    }
+    .header-top, .header-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-top a, .header-bottom a {
+      margin-left: 20px;
+      color: #fff;
+      font-weight: 500;
+    }
+    .currency-selector {
+      margin-left: 20px;
+    }
+    /* Search bar */
+    .search-bar {
+      background-color: #febb02;
+      padding: 20px;
+      margin-top: 10px;
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .search-bar input, .search-bar select {
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      flex: 1 1 150px;
+    }
+    /* Grid layouts */
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .property-card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+    .property-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .property-info {
+      padding: 10px;
+    }
+    .property-info .rating {
+      color: #003580;
+      font-weight: 700;
+    }
+    /* Footer */
+    footer {
+      background-color: #003580;
+      color: #fff;
+      padding: 40px 0;
+    }
+    footer a {
+      color: #fff;
+    }
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-top, .header-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .search-bar {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Booking Mirror</div>
-        <nav>
-            <a href="#">List your property</a>
-            <a href="#" class="btn">Register</a>
-            <a href="#" class="btn">Sign In</a>
-        </nav>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Find your next stay</h1>
-        <p>Search low prices on hotels, homes and much more...</p>
-        <div class="search-box">
-            <input type="text" placeholder="Where are you going?">
-            <input type="date" placeholder="Check-in">
-            <input type="date" placeholder="Check-out">
-            <select id="adults">
-                <option value="2">2 adults</option>
-                <option value="1">1 adult</option>
-                <option value="3">3 adults</option>
-            </select>
-            <select id="children">
-                <option value="0">0 children</option>
-                <option value="1">1 child</option>
-                <option value="2">2 children</option>
-            </select>
-            <select id="rooms">
-                <option value="1">1 room</option>
-                <option value="2">2 rooms</option>
-                <option value="3">3 rooms</option>
-            </select>
-            <button>Search</button>
-        </div>
-    </section>
+<!-- Header -->
+<header>
+  <div class="container header-top">
+    <div>
+      <strong>ZAR</strong>
+      <select class="currency-selector">
+        <option value="ZAR" selected>ZAR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div>
+      <a href="#">List your property</a>
+      <a href="#">Register</a>
+      <a href="#">Sign in</a>
+    </div>
+  </div>
+  <div class="container header-bottom">
+    <h1>Find your next stay</h1>
+  </div>
+  <div class="container search-bar">
+    <input type="text" placeholder="Where are you going?">
+    <input type="date" placeholder="Check-in">
+    <input type="date" placeholder="Check-out">
+    <select>
+      <option>2 adults · 0 children · 1 room</option>
+    </select>
+    <button>Add flights to my search</button>
+    <button>Search</button>
+  </div>
+</header>
 
-    <!-- Offers Section -->
-    <section>
-        <h2>Offers & Promotions</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1576671087133-197b50dc23dc?auto=format&fit=crop&w=800&q=80" alt="Getaway Deal">
-                <div class="card-content">
-                    <h3>Quick escape, quality time</h3>
-                    <p>Save up to 20% with a Getaway Deal</p>
-                    <span class="rating">★ 9.0 Fabulous</span>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Late Escape Deals">
-                <div class="card-content">
-                    <h3>Late Escape Deals</h3>
-                    <p>Squeeze out the last bit of sun with at least 15% off</p>
-                    <span class="rating">★ 8.8 Very Good</span>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Holiday Rentals">
-                <div class="card-content">
-                    <h3>Holiday rentals</h3>
-                    <p>Choose from houses, villas, chalets and more</p>
-                    <span class="rating">★ 9.2 Superb</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Offers & Promotions -->
+<section class="section container">
+  <h2>Offers</h2>
+  <div class="grid grid-3">
+    <div>
+      <img src="https://source.unsplash.com/400x250/?beach,travel" alt="">
+      <h3>Quick escape, quality time</h3>
+      <p>Save up to 20% with a Getaway Deal</p>
+    </div>
+    <div>
+      <img src="https://source.unsplash.com/400x250/?sunset,holiday" alt="">
+      <h3>Late Escape Deals</h3>
+      <p>Squeeze out the last bit of sun with at least 15% off</p>
+    </div>
+    <div>
+      <img src="https://source.unsplash.com/400x250/?hammock,relax" alt="">
+      <h3>Holiday rentals</h3>
+      <p>Live the dream in a holiday home</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Popular Destinations -->
-    <section>
-        <h2>Explore South Africa</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1547516508-1a0b1a1f1d7d?auto=format&fit=crop&w=800&q=80" alt="Cape Town">
-                <div class="card-content">
-                    <h3>Cape Town</h3>
-                    <p>7,439 properties</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1528106217925-3f0fcf18114f?auto=format&fit=crop&w=800&q=80" alt="Durban">
-                <div class="card-content">
-                    <h3>Durban</h3>
-                    <p>1,979 properties</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1587583771083-3341eeb13e92?auto=format&fit=crop&w=800&q=80" alt="Johannesburg">
-                <div class="card-content">
-                    <h3>Johannesburg</h3>
-                    <p>3,041 properties</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Explore South Africa -->
+<section class="section container">
+  <h2>Explore South Africa</h2>
+  <div class="grid grid-4">
+    <div><img src="https://source.unsplash.com/200x150/?cape-town"><p>Cape Town - 7,439 properties</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?durban"><p>Durban - 1,979 properties</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?johannesburg"><p>Johannesburg - 3,041 properties</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?pretoria"><p>Pretoria - 1,617 properties</p></div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Booking Mirror. All rights reserved. | Inspired by Booking.com
-    </footer>
+<!-- Trending Destinations -->
+<section class="section container">
+  <h2>Trending Destinations</h2>
+  <div class="grid grid-4">
+    <div><img src="https://source.unsplash.com/200x150/?cape-town"><p>Cape Town</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?durban"><p>Durban</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?johannesburg"><p>Johannesburg</p></div>
+    <div><img src="https://source.unsplash.com/200x150/?pretoria"><p>Pretoria</p></div>
+  </div>
+</section>
 
-    <!-- Minimal JS for dropdowns -->
-    <script>
-        const searchBtn = document.querySelector('.search-box button');
-        searchBtn.addEventListener('click', () => {
-            const destination = document.querySelector('.search-box input').value;
-            const adults = document.querySelector('#adults').value;
-            const children = document.querySelector('#children').value;
-            const rooms = document.querySelector('#rooms').value;
-            alert(`Searching for ${destination}, ${adults} adults, ${children} children, ${rooms} room(s).`);
-        });
-    </script>
+<!-- Property Types -->
+<section class="section container">
+  <h2>Browse by property type</h2>
+  <div class="grid grid-4">
+    <div><p>Hotels</p></div>
+    <div><p>Apartments</p></div>
+    <div><p>Resorts</p></div>
+    <div><p>Villas</p></div>
+    <div><p>Cabins</p></div>
+    <div><p>Cottages</p></div>
+    <div><p>Glamping</p></div>
+    <div><p>Serviced apartments</p></div>
+  </div>
+</section>
+
+<!-- Top Unique Properties -->
+<section class="section container">
+  <h2>Stay at our top unique properties</h2>
+  <div class="grid grid-3">
+    <div class="property-card">
+      <img src="https://source.unsplash.com/400x250/?hotel" alt="">
+      <div class="property-info">
+        <h3>The Estuary Hotel & Spa</h3>
+        <p>Port Edward, South Africa</p>
+        <p class="rating">7.6 - Good</p>
+        <p>980 reviews</p>
+      </div>
+    </div>
+    <div class="property-card">
+      <img src="https://source.unsplash.com/400x250/?resort" alt="">
+      <div class="property-info">
+        <h3>The Beach Hotel</h3>
+        <p>Port Elizabeth, South Africa</p>
+        <p class="rating">8.5 - Very good</p>
+        <p>1,888 reviews</p>
+      </div>
+    </div>
+    <div class="property-card">
+      <img src="https://source.unsplash.com/400x250/?lodge" alt="">
+      <div class="property-info">
+        <h3>Jozini Tiger Lodge & Spa</h3>
+        <p>Jozini, South Africa</p>
+        <p class="rating">8.1 - Very good</p>
+        <p>978 reviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Booking.com -->
+<section class="section container">
+  <h2>Why Booking.com?</h2>
+  <div class="grid grid-3">
+    <div>
+      <h3>Book now, pay at the property</h3>
+      <p>FREE cancellation on most rooms</p>
+    </div>
+    <div>
+      <h3>300M+ reviews from fellow travellers</h3>
+      <p>Get trusted information from guests like you</p>
+    </div>
+    <div>
+      <h3>2+ million properties worldwide</h3>
+      <p>Hotels, guest houses, apartments, and more…</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="section">
+  <div class="container footer-grid">
+    <div>
+      <h3>Countries</h3>
+      <p><a href="#">South Africa</a></p>
+      <p><a href="#">United States</a></p>
+      <p><a href="#">United Kingdom</a></p>
+      <p><a href="#">Australia</a></p>
+    </div>
+    <div>
+      <h3>Regions</h3>
+      <p><a href="#">Cape Town</a></p>
+      <p><a href="#">Durban</a></p>
+      <p><a href="#">Johannesburg</a></p>
+      <p><a href="#">Pretoria</a></p>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <p><a href="#">About Booking.com</a></p>
+      <p><a href="#">Careers</a></p>
+      <p><a href="#">Press centre</a></p>
+      <p><a href="#">Sustainability</a></p>
+    </div>
+    <div>
+      <h3>Legal</h3>
+      <p><a href="#">Terms & conditions</a></p>
+      <p><a href="#">Privacy & cookies</a></p>
+      <p><a href="#">Accessibility</a></p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:20px;">
+    &copy; 1996–2025 Booking.com™. All rights reserved.
+  </div>
+</footer>
+
 </body>
 </html>
