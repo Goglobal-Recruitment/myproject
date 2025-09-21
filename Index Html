@@ -1,151 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking Clone - Home</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking.com Clone</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; color: #333; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; transition: 0.3s; }
+
+/* Header */
+header { background-color: #003580; padding: 15px 30px; display:flex; justify-content:space-between; align-items:center; color:white; position: sticky; top:0; z-index:1000; }
+header h1 { font-size:24px; font-weight:700; }
+.nav-links { display:flex; gap:20px; }
+.nav-links a { color:white; font-weight:500; transition: 0.3s; }
+.nav-links a:hover { text-decoration: underline; }
+.auth-buttons { display:flex; gap:10px; }
+.auth-buttons button { padding:7px 15px; border:none; border-radius:4px; font-weight:600; }
+.auth-buttons .login { background-color:white; color:#003580; }
+.auth-buttons .register { background-color:#febb02; color:#003580; }
+
+/* Hero / Search Section */
+.search-section { background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1350&q=80'); background-size:cover; background-position:center; padding:80px 20px; color:white; text-align:center; }
+.search-section h2 { font-size:38px; margin-bottom:15px; font-weight:700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.search-section p { font-size:18px; margin-bottom:25px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.search-bar { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px; }
+.search-bar input, .search-bar select { padding:12px; font-size:16px; border:none; border-radius:4px; min-width:120px; }
+.search-bar button { padding:12px 25px; font-size:16px; background-color:#febb02; border:none; border-radius:4px; font-weight:700; color:#003580; transition:0.3s; }
+.search-bar button:hover { background-color:#ffc107; transform: translateY(-2px); }
+
+/* Section Titles */
+h3 { margin:40px 0 20px 20px; font-size:28px; font-weight:700; }
+
+/* Cards */
+.cards-container { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; padding:0 20px 40px 20px; }
+.card { background-color:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
+.card img { width:100%; height:180px; object-fit:cover; }
+.card-content { padding:15px; }
+.card-content h4 { font-size:18px; margin-bottom:5px; font-weight:600; }
+.card-content p { font-size:14px; margin-bottom:10px; color:#666; }
+.card-content .price { font-weight:700; color:#003580; }
+
+/* Footer */
+footer { background-color:#003580; color:white; padding:40px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+footer div { flex:1 1 200px; margin:10px; }
+footer h4 { margin-bottom:10px; font-size:16px; }
+footer a { display:block; margin-bottom:5px; color:white; font-size:14px; }
+
+/* Responsive */
+@media(max-width:768px){
+    .search-bar { flex-direction: column; align-items:center; }
+}
+</style>
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="currency-selector">
-      <label for="currency">Currency:</label>
-      <select id="currency" name="currency">
-        <option value="ZAR" selected>ZAR</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="AUD">AUD</option>
-        <option value="CAD">CAD</option>
-        <option value="JPY">JPY</option>
-        <!-- Add more currencies as needed -->
-      </select>
-    </div>
-    <a href="#">List your property</a>
-    <button class="btn-outline">Register</button>
-    <button class="btn-primary">Sign in</button>
-  </div>
-
-  <!-- Header / Navbar -->
-  <header>
-    <div class="logo">BookingClone</div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Stays</a></li>
-        <li><a href="listings.html">Flights</a></li>
-        <li><a href="#">Car rental</a></li>
-        <li><a href="#">Attractions</a></li>
-        <li><a href="#">Airport taxis</a></li>
-      </ul>
+<!-- Header -->
+<header>
+    <h1>Booking.com</h1>
+    <nav class="nav-links">
+        <a href="#">Stays</a>
+        <a href="#">Flights</a>
+        <a href="#">Car Rental</a>
+        <a href="#">Attractions</a>
+        <a href="#">Airport Taxis</a>
     </nav>
     <div class="auth-buttons">
-      <button class="btn-outline">Register</button>
-      <button class="btn-primary">Sign in</button>
+        <button class="login">Sign in</button>
+        <button class="register">Register</button>
     </div>
-  </header>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Find your next stay</h1>
-    <p>Search deals on hotels, homes, and much more...</p>
+<!-- Hero / Search -->
+<section class="search-section">
+    <h2>Find your next stay</h2>
+    <p>Search low prices on hotels, homes and much more...</p>
+    <div class="search-bar">
+        <input type="text" placeholder="Destination">
 
-    <form class="search-box">
-      <input type="text" placeholder="Where are you going?">
-      <input type="date" placeholder="Check-in date">
-      <input type="date" placeholder="Check-out date">
-      <select>
-        <option>2 adults · 0 children · 1 room</option>
-        <option>1 adult · 0 children · 1 room</option>
-        <option>2 adults · 2 rooms</option>
-      </select>
-      <button type="submit" class="btn-primary">Search</button>
-      <label><input type="checkbox"> Add flights to my search</label>
-    </form>
-  </section>
+        <input type="date" value="2025-09-21">
+        <input type="date" value="2025-09-22">
 
-  <!-- Existing Offers Section (kept from your current index) -->
-  <section class="offers">
-    <h2>Offers</h2>
-    <div class="offer-cards">
-      <div class="offer-card">
-        <h3>Fly away to your dream holiday</h3>
-        <p>Quick escapes, sparkling times</p>
-        <button class="btn-outline">Search for flights</button>
-      </div>
-      <div class="offer-card">
-        <h3>Take your longest holiday yet</h3>
-        <p>Browse properties offering long-term stays.</p>
-        <button class="btn-outline">Find a stay</button>
-      </div>
+        <!-- Adults Dropdown -->
+        <select id="adults">
+            <option value="1">1 Adult</option>
+            <option value="2" selected>2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+        </select>
+
+        <!-- Children Dropdown -->
+        <select id="children">
+            <option value="0" selected>0 Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+        </select>
+
+        <!-- Rooms Dropdown -->
+        <select id="rooms">
+            <option value="1" selected>1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+        </select>
+
+        <button id="searchBtn">Search</button>
     </div>
-  </section>
+</section>
 
-  <!-- New Promotions / Late Escape / Vacation Rentals -->
-  <section class="promotions">
-    <h2>Promotions, deals, and special offers for you</h2>
-    <div class="offer-cards">
-      <div class="offer-card">
-        <h3>Quick escape, quality time</h3>
-        <p>Save up to 20% with a Getaway Deal</p>
-        <button class="btn-outline">Save on stays</button>
-      </div>
-      <div class="offer-card">
-        <h3>Late Escape Deals</h3>
-        <p>Squeeze out the last bit of sun with at least 15% off</p>
-        <button class="btn-outline">Find deals</button>
-      </div>
-      <div class="offer-card">
-        <h3>Vacation rentals</h3>
-        <p>Choose from houses, villas, cabins, and more</p>
-        <button class="btn-outline">Book yours</button>
-      </div>
+<!-- Deals for Tonight -->
+<h3>Deals for tonight</h3>
+<div class="cards-container">
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?hotel,cape-town" alt="Mojo Hotel">
+        <div class="card-content">
+            <h4>Mojo Hotel & Market</h4>
+            <p>7.5 - Good · 3,671 reviews</p>
+            <p class="price">ZAR 702</p>
+        </div>
     </div>
-  </section>
-
-  <!-- Destinations Section (expanded with all cities) -->
-  <section class="destinations">
-    <h2>Explore South Africa</h2>
-    <div class="destination-grid">
-      <div class="destination-card">Cape Town<br><small>7,439 properties</small></div>
-      <div class="destination-card">Durban<br><small>1,979 properties</small></div>
-      <div class="destination-card">Johannesburg<br><small>3,041 properties</small></div>
-      <div class="destination-card">Pretoria<br><small>1,617 properties</small></div>
-      <div class="destination-card">Bloemfontein<br><small>496 properties</small></div>
-      <div class="destination-card">Ballito<br><small>1,426 properties</small></div>
-      <div class="destination-card">East London<br><small>510 properties</small></div>
-      <div class="destination-card">Port Elizabeth<br><small>287 properties</small></div>
-      <div class="destination-card">Kempton Park<br><small>252 properties</small></div>
-      <div class="destination-card">Midrand<br><small>869 properties</small></div>
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?apartment,cape-town" alt="Habitat Aparthotel">
+        <div class="card-content">
+            <h4>Habitat Aparthotel by Totalstay</h4>
+            <p>8.2 - Very Good · 3,319 reviews</p>
+            <p class="price">ZAR 721</p>
+        </div>
     </div>
-  </section>
-
-  <!-- Existing Deals Section (kept from your current index) -->
-  <section class="deals">
-    <h2>Deals for the weekend</h2>
-    <div class="deal-cards">
-      <div class="deal-card">
-        <img src="https://via.placeholder.com/300x200" alt="Hotel">
-        <h3>Blue Rock Hotel</h3>
-        <p>Cape Town • 8.5 Excellent • 1,254 reviews</p>
-        <p class="price"><span class="old">ZAR 3,758</span> ZAR 2,998</p>
-        <button class="btn-primary">View Deal</button>
-      </div>
-      <div class="deal-card">
-        <img src="https://via.placeholder.com/300x200" alt="Hotel">
-        <h3>Energy Guest House</h3>
-        <p>Johannesburg • 8.2 Excellent • 897 reviews</p>
-        <p class="price"><span class="old">ZAR 2,456</span> ZAR 1,890</p>
-        <button class="btn-primary">View Deal</button>
-      </div>
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?hotel,cape-town" alt="Cresta Grande">
+        <div class="card-content">
+            <h4>Cresta Grande Cape Town</h4>
+            <p>8.2 - Very Good · 2,351 reviews</p>
+            <p class="price">ZAR 1,492</p>
+        </div>
     </div>
-  </section>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Booking Clone. All rights reserved.</p>
-  </footer>
+<!-- Popular Destinations -->
+<h3>Explore South Africa</h3>
+<div class="cards-container">
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?cape-town" alt="Cape Town">
+        <div class="card-content">
+            <h4>Cape Town</h4>
+            <p>7,440 properties</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?durban" alt="Durban">
+        <div class="card-content">
+            <h4>Durban</h4>
+            <p>1,981 properties</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://source.unsplash.com/400x300/?johannesburg" alt="Johannesburg">
+        <div class="card-content">
+            <h4>Johannesburg</h4>
+            <p>3,043 properties</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div>
+        <h4>Company</h4>
+        <a href="#">About Booking.com</a>
+        <a href="#">Careers</a>
+        <a href="#">Press centre</a>
+    </div>
+    <div>
+        <h4>Support</h4>
+        <a href="#">Coronavirus (COVID-19) FAQs</a>
+        <a href="#">Contact Customer Service</a>
+        <a href="#">Safety resource centre</a>
+    </div>
+    <div>
+        <h4>Discover</h4>
+        <a href="#">Genius loyalty programme</a>
+        <a href="#">Seasonal and holiday deals</a>
+        <a href="#">Travel articles</a>
+    </div>
+    <div>
+        <h4>Partners</h4>
+        <a href="#">List your property</a>
+        <a href="#">Partner help</a>
+        <a href="#">Become an affiliate</a>
+    </div>
+</footer>
+
+<!-- JavaScript for Dropdown Logic -->
+<script>
+const adults = document.getElementById('adults');
+const children = document.getElementById('children');
+const rooms = document.getElementById('rooms');
+
+const searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', () => {
+    const totalPeople = parseInt(adults.value) + parseInt(children.value);
+    if(totalPeople > rooms.value * 4){
+        alert('Max 4 guests per room. Please adjust adults, children, or rooms.');
+        return;
+    }
+    alert(`Searching for ${adults.value} adults, ${children.value} children in ${rooms.value} room(s).`);
+});
+</script>
 
 </body>
 </html>
