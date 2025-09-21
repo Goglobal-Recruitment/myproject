@@ -3,207 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go-Global Booking</title>
+<title>Booking Mirror - GoGlobal Project</title>
+<!-- Google Fonts to match Booking.com -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; color: #333; }
-a { text-decoration:none; color:inherit; }
-button { cursor:pointer; transition: 0.3s; }
+    /* Reset & base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background-color: #f5f5f5; color: #222; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; }
 
-header { background-color: #003580; padding: 15px 30px; display:flex; justify-content:space-between; align-items:center; color:white; position: sticky; top:0; z-index:1000; }
-header h1 { font-size:24px; font-weight:700; }
-.nav-links { display:flex; gap:20px; }
-.nav-links a { color:white; font-weight:500; transition: 0.3s; }
-.nav-links a:hover { text-decoration: underline; }
-.auth-buttons { display:flex; gap:10px; }
-.auth-buttons button { padding:7px 15px; border:none; border-radius:4px; font-weight:600; }
-.auth-buttons .login { background-color:white; color:#003580; }
-.auth-buttons .register { background-color:#febb02; color:#003580; }
+    /* Header */
+    header { background-color: #003580; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; flex-wrap: wrap; }
+    header .logo { font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+    header nav { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+    header nav a { color: #fff; font-weight: 500; padding: 8px 12px; border-radius: 4px; transition: background 0.2s; }
+    header nav a:hover { background-color: #0055a5; }
 
-.search-section { background-image:url('https://goglobal-recruitment.github.io/myproject/hero.jpg'); background-size:cover; background-position:center; padding:80px 20px; color:white; text-align:center; }
-.search-section h2 { font-size:38px; margin-bottom:15px; font-weight:700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-.search-section p { font-size:18px; margin-bottom:25px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+    /* Hero Section */
+    .hero { background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8&ixlib=rb-4.0.3&q=80&w=1920'); background-size: cover; background-position: center; padding: 60px 20px; color: #fff; text-align: center; position: relative; }
+    .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.45); }
+    .hero-content { position: relative; max-width: 900px; margin: auto; }
+    .hero h1 { font-size: 40px; margin-bottom: 20px; font-weight: 700; }
+    .hero p { font-size: 18px; margin-bottom: 30px; }
+    
+    /* Search form */
+    .search-form { display: flex; flex-wrap: wrap; gap: 10px; background: #fff; padding: 15px; border-radius: 8px; position: relative; z-index: 2; justify-content: center; }
+    .search-form input, .search-form select { padding: 10px; border-radius: 4px; border: 1px solid #ccc; min-width: 150px; }
+    .search-form button { background-color: #0071c2; color: #fff; border: none; padding: 10px 20px; font-weight: 700; border-radius: 4px; transition: background 0.2s; }
+    .search-form button:hover { background-color: #005a9c; }
 
-.search-bar { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px; background: rgba(255,255,255,0.95); padding:15px; border-radius:8px; color:#003580; }
-.search-bar input, .search-bar select { padding:12px; font-size:16px; border:1px solid #ccc; border-radius:4px; min-width:120px; }
-.search-bar select { transition: all 0.3s; }
-.search-bar button { padding:12px 25px; font-size:16px; background-color:#febb02; border:none; border-radius:4px; font-weight:700; color:#003580; transition:0.3s; }
-.search-bar button:hover { background-color:#ffc107; transform: translateY(-2px); }
+    /* Sections */
+    section { padding: 50px 20px; max-width: 1200px; margin: auto; }
+    section h2 { font-size: 28px; margin-bottom: 20px; color: #003580; }
+    .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-body { padding: 15px; }
+    .card-body h3 { font-size: 18px; margin-bottom: 8px; font-weight: 700; color: #0071c2; }
+    .card-body p { font-size: 14px; color: #555; }
+    .card-body .price { font-weight: 700; margin-top: 8px; color: #222; }
 
-.child-ages { display:flex; gap:10px; margin-top:10px; justify-content:center; flex-wrap:wrap; }
+    /* Footer */
+    footer { background-color: #003580; color: #fff; padding: 40px 20px; }
+    footer h3 { margin-bottom: 15px; font-size: 20px; }
+    footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 15px; }
+    footer ul li a { color: #fff; font-size: 14px; }
 
-h3 { margin:40px 0 20px 20px; font-size:28px; font-weight:700; }
-
-.cards-container { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; padding:0 20px 40px 20px; }
-.card { background-color:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.card:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
-.card img { width:100%; height:180px; object-fit:cover; }
-.card-content { padding:15px; }
-.card-content h4 { font-size:18px; margin-bottom:5px; font-weight:600; }
-.card-content p { font-size:14px; margin-bottom:10px; color:#666; }
-.card-content .price { font-weight:700; color:#003580; }
-
-footer { background-color:#003580; color:white; padding:40px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; }
-footer div { flex:1 1 200px; margin:10px; }
-footer h4 { margin-bottom:10px; font-size:16px; }
-footer a { display:block; margin-bottom:5px; color:white; font-size:14px; }
-
-@media(max-width:768px){
-    .search-bar { flex-direction: column; align-items:center; }
-}
+    /* Responsive */
+    @media(max-width: 768px){
+        .hero h1 { font-size: 28px; }
+        .search-form { flex-direction: column; align-items: stretch; }
+    }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-    <h1>Go-Global</h1>
-    <nav class="nav-links">
+    <div class="logo">GoGlobal Booking</div>
+    <nav>
         <a href="#">Stays</a>
         <a href="#">Flights</a>
         <a href="#">Car Rental</a>
         <a href="#">Attractions</a>
         <a href="#">Airport Taxis</a>
+        <a href="#">Sign In</a>
+        <a href="#" style="background:#fff;color:#0071c2;">Register</a>
     </nav>
-    <div class="auth-buttons">
-        <button class="login">Sign in</button>
-        <button class="register">Register</button>
-    </div>
 </header>
 
-<section class="search-section">
-    <h2>Find your next stay</h2>
-    <p>Search low prices on hotels, homes and much more...</p>
-    <div class="search-bar">
-        <input type="text" placeholder="Destination">
-        <input type="date" value="2025-09-21">
-        <input type="date" value="2025-09-22">
-
-        <select id="adults">
-            <option value="1">1 Adult</option>
-            <option value="2" selected>2 Adults</option>
-            <option value="3">3 Adults</option>
-            <option value="4">4 Adults</option>
-        </select>
-
-        <select id="children">
-            <option value="0" selected>0 Children</option>
-            <option value="1">1 Child</option>
-            <option value="2">2 Children</option>
-            <option value="3">3 Children</option>
-        </select>
-
-        <select id="rooms">
-            <option value="1" selected>1 Room</option>
-            <option value="2">2 Rooms</option>
-            <option value="3">3 Rooms</option>
-        </select>
-
-        <button id="searchBtn">Search</button>
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Find your next stay</h1>
+        <p>Search low prices on hotels, homes and much more...</p>
+        <form class="search-form">
+            <input type="text" placeholder="Where are you going?" />
+            <input type="date" placeholder="Check-in" />
+            <input type="date" placeholder="Check-out" />
+            <select>
+                <option>2 Adults</option>
+                <option>1 Adult</option>
+                <option>3 Adults</option>
+            </select>
+            <select>
+                <option>0 Children</option>
+                <option>1 Child</option>
+                <option>2 Children</option>
+            </select>
+            <select>
+                <option>1 Room</option>
+                <option>2 Rooms</option>
+                <option>3 Rooms</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
     </div>
-    <div class="child-ages" id="childAgesContainer"></div>
 </section>
 
-<h3>Deals for tonight</h3>
-<div class="cards-container">
-    <div class="card">
-        <img src="https://goglobal-recruitment.github.io/myproject/deal1.jpg" alt="Deal 1">
-        <div class="card-content">
-            <h4>Mojo Hotel & Market</h4>
-            <p>7.5 - Good · 3,671 reviews</p>
-            <p class="price">ZAR 702</p>
+<!-- Offers Section -->
+<section>
+    <h2>Promotions, deals and special offers for you</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Quick Escape">
+            <div class="card-body">
+                <h3>Quick escape, quality time</h3>
+                <p>Save up to 20% with a Getaway Deal</p>
+                <p class="price">Starting from ZAR 1,500</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Holiday Home">
+            <div class="card-body">
+                <h3>Live the dream in a holiday home</h3>
+                <p>Choose from houses, villas, chalets and more</p>
+                <p class="price">Starting from ZAR 2,000</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1582719478250-40a1f7d9c9c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Late Escape">
+            <div class="card-body">
+                <h3>Late Escape Deals</h3>
+                <p>Squeeze out the last bit of sun with at least 15% off</p>
+                <p class="price">Starting from ZAR 1,200</p>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <img src="https://goglobal-recruitment.github.io/myproject/deal2.jpg" alt="Deal 2">
-        <div class="card-content">
-            <h4>Habitat Aparthotel by Totalstay</h4>
-            <p>8.2 - Very Good · 3,319 reviews</p>
-            <p class="price">ZAR 721</p>
-        </div>
-    </div>
-</div>
+</section>
 
-<h3>Explore South Africa</h3>
-<div class="cards-container">
-    <div class="card">
-        <img src="https://goglobal-recruitment.github.io/myproject/cape-town.jpg" alt="Cape Town">
-        <div class="card-content">
-            <h4>Cape Town</h4>
-            <p>7,440 properties</p>
+<!-- Explore South Africa -->
+<section>
+    <h2>Explore South Africa</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Cape Town">
+            <div class="card-body">
+                <h3>Cape Town</h3>
+                <p>7,439 properties</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541613240160-0d9a1067b136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Durban">
+            <div class="card-body">
+                <h3>Durban</h3>
+                <p>1,979 properties</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1574217153673-4307999cc927?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Johannesburg">
+            <div class="card-body">
+                <h3>Johannesburg</h3>
+                <p>3,041 properties</p>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <img src="https://goglobal-recruitment.github.io/myproject/durban.jpg" alt="Durban">
-        <div class="card-content">
-            <h4>Durban</h4>
-            <p>1,981 properties</p>
-        </div>
-    </div>
-</div>
+</section>
 
+<!-- Weekend Deals -->
+<section>
+    <h2>Deals for the weekend</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542317854-2d4e0b75f6b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Sea Castle Hotel">
+            <div class="card-body">
+                <h3>Sea Castle Hotel Camps Bay</h3>
+                <p>Cape Town, South Africa</p>
+                <p class="price">ZAR 6,197</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Whale Away Guest House">
+            <div class="card-body">
+                <h3>Whale Away Guest House</h3>
+                <p>Hermanus, South Africa</p>
+                <p class="price">ZAR 4,165</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542315199-1c2f63f4b11e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Old Bank Hotel">
+            <div class="card-body">
+                <h3>Old Bank Hotel</h3>
+                <p>Cape Town, South Africa</p>
+                <p class="price">ZAR 3,689</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
     <div>
-        <h4>Company</h4>
-        <a href="#">About Go-Global</a>
-        <a href="#">Careers</a>
-        <a href="#">Press centre</a>
-    </div>
-    <div>
-        <h4>Support</h4>
-        <a href="#">Contact Customer Service</a>
-        <a href="#">Safety resource centre</a>
-    </div>
-    <div>
-        <h4>Discover</h4>
-        <a href="#">Genius loyalty programme</a>
-        <a href="#">Seasonal and holiday deals</a>
-    </div>
-    <div>
-        <h4>Partners</h4>
-        <a href="#">List your property</a>
-        <a href="#">Partner help</a>
-        <a href="#">Become an affiliate</a>
+        <h3>Booking.com</h3>
+        <ul>
+            <li><a href="#">Countries</a></li>
+            <li><a href="#">Regions</a></li>
+            <li><a href="#">Cities</a></li>
+            <li><a href="#">Airports</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#">Places of interest</a></li>
+            <li><a href="#">Holiday Homes</a></li>
+            <li><a href="#">Apartments</a></li>
+            <li><a href="#">Resorts</a></li>
+            <li><a href="#">Villas</a></li>
+        </ul>
+        <p style="margin-top:20px; font-size:12px;">© 2025 GoGlobal Booking. All rights reserved.</p>
     </div>
 </footer>
-
-<script>
-const adults = document.getElementById('adults');
-const children = document.getElementById('children');
-const rooms = document.getElementById('rooms');
-const childAgesContainer = document.getElementById('childAgesContainer');
-const searchBtn = document.getElementById('searchBtn');
-
-function renderChildAges() {
-    childAgesContainer.innerHTML = '';
-    const numChildren = parseInt(children.value);
-    for(let i=1; i<=numChildren; i++){
-        const select = document.createElement('select');
-        select.innerHTML = '<option value="0">0</option>';
-        for(let j=1; j<=17; j++){
-            select.innerHTML += `<option value="${j}">${j} yrs</option>`;
-        }
-        select.style.padding = "8px";
-        select.style.borderRadius = "4px";
-        select.style.border = "1px solid #ccc";
-        select.style.minWidth = "80px";
-        select.id = `childAge${i}`;
-        childAgesContainer.appendChild(select);
-    }
-}
-
-children.addEventListener('change', renderChildAges);
-searchBtn.addEventListener('click', () => {
-    const totalPeople = parseInt(adults.value) + parseInt(children.value);
-    if(totalPeople > rooms.value * 4){
-        alert('Max 4 guests per room. Please adjust adults, children, or rooms.');
-    } else {
-        alert('Search submitted! (Implement backend next)');
-    }
-});
-
-renderChildAges();
-</script>
 
 </body>
 </html>
