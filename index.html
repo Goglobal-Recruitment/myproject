@@ -1,25 +1,515 @@
-<!-- Header Section -->
-<header style="background-color:#003580; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; color:white; font-family: 'Arial', sans-serif;">
-  
-  <!-- Logo -->
-  <div class="logo">
-    <a href="#" style="text-decoration:none; color:white;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Booking.com_logo.svg" alt="Booking.com Logo" style="height:40px;">
-    </a>
-  </div>
-  
-  <!-- Navigation Links -->
-  <nav style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-    <div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking.com Mirror</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial:400,700">
+<style>
+  body {margin:0; font-family:'Arial',sans-serif;}
+  a {text-decoration:none;}
+  .flex {display:flex;}
+  .center {align-items:center; justify-content:center;}
+  .header, .search-bar, .offers {width:100%;}
+  .container {max-width:1200px; margin:0 auto; padding:0 20px;}
+  .btn {background-color:#003580; color:white; padding:8px 15px; border:none; border-radius:3px; cursor:pointer; font-weight:bold;}
+  .section-title {font-size:24px; margin:20px 0;}
+  .offer-card img {width:100%; border-radius:8px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" style="background-color:#003580; color:white; padding:10px 0;">
+  <div class="container flex" style="justify-content:space-between; flex-wrap:wrap;">
+    <div class="logo">
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Booking.com_logo.svg" alt="Booking.com Logo" style="height:40px;"></a>
+    </div>
+    <nav class="flex" style="gap:20px; flex-wrap:wrap;">
       <select style="padding:5px; border-radius:3px; border:none; font-size:14px;">
         <option value="ZAR">ZAR</option>
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
-        <!-- Add more currencies if needed -->
       </select>
-    </div>
-    <a href="#" style="color:white; text-decoration:none; font-size:14px;">List your property</a>
-    <a href="#" style="color:white; text-decoration:none; font-size:14px;">Register</a>
-    <a href="#" style="color:white; text-decoration:none; font-size:14px;">Sign in</a>
-  </nav>
+      <a href="#" style="color:white; font-size:14px;">List your property</a>
+      <a href="#" style="color:white; font-size:14px;">Register</a>
+      <a href="#" style="color:white; font-size:14px;">Sign in</a>
+    </nav>
+  </div>
 </header>
+
+<!-- SEARCH BAR -->
+<section class="search-bar" style="background-color:#0071c2; padding:30px 0; color:white;">
+  <div class="container">
+    <h1 style="font-size:32px; margin-bottom:20px;">Find your next stay</h1>
+    <p style="margin-bottom:20px;">Search low prices on hotels, homes and much more...</p>
+    <div style="background:white; color:black; border-radius:8px; padding:20px; display:flex; gap:10px; flex-wrap:wrap;">
+      <input type="text" placeholder="Where are you going?" style="flex:2; padding:10px; border-radius:4px; border:1px solid #ccc;">
+      <input type="text" placeholder="Check-in" style="flex:1; padding:10px; border-radius:4px; border:1px solid #ccc;">
+      <input type="text" placeholder="Check-out" style="flex:1; padding:10px; border-radius:4px; border:1px solid #ccc;">
+      <input type="text" placeholder="2 adults · 0 children · 1 room" style="flex:1.5; padding:10px; border-radius:4px; border:1px solid #ccc;">
+      <button class="btn" style="flex:0.5;">Search</button>
+    </div>
+    <label style="margin-top:10px; display:block;"><input type="checkbox"> Add flights to my search</label>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers" style="padding:40px 0; background-color:#f5f5f5;">
+  <div class="container">
+    <h2 class="section-title">Offers</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      
+      <div class="offer-card" style="flex:1 1 300px;">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Quick escape">
+        <h3>Quick escape, quality time</h3>
+        <p>Save up to 20% with a Getaway Deal</p>
+      </div>
+
+      <div class="offer-card" style="flex:1 1 300px;">
+        <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba" alt="Late Escape Deals">
+        <h3>Late Escape Deals</h3>
+        <p>Squeeze out the last bit of sun with at least 15% off</p>
+      </div>
+
+      <div class="offer-card" style="flex:1 1 300px;">
+        <img src="https://images.unsplash.com/photo-1519821172141-b14f935d7f45" alt="Holiday rentals">
+        <h3>Holiday rentals</h3>
+        <p>Live the dream in a holiday home</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- EXPLORE SOUTH AFRICA -->
+<section class="explore-sa" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title">Explore South Africa</h2>
+    <p>These popular destinations have a lot to offer</p>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cape Town" style="width:100%; border-radius:8px;">
+        <h4>Cape Town</h4>
+        <p>7,439 properties</p>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="Durban" style="width:100%; border-radius:8px;">
+        <h4>Durban</h4>
+        <p>1,979 properties</p>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1565679426333-56712e0f92e3" alt="Johannesburg" style="width:100%; border-radius:8px;">
+        <h4>Johannesburg</h4>
+        <p>3,041 properties</p>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1533743983669-94fa82dbaab4" alt="Pretoria" style="width:100%; border-radius:8px;">
+        <h4>Pretoria</h4>
+        <p>1,617 properties</p>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1524471989832-31a45d9e72a5" alt="Bloemfontein" style="width:100%; border-radius:8px;">
+        <h4>Bloemfontein</h4>
+        <p>496 properties</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING DESTINATIONS -->
+<section class="trending-destinations" style="padding:40px 0; background-color:#f5f5f5;">
+  <div class="container">
+    <h2 class="section-title">Trending destinations</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1516542076529-1ea3854896c2" alt="Cape Town" style="width:100%; border-radius:8px;">
+        <h4>Cape Town, South Africa</h4>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="Durban" style="width:100%; border-radius:8px;">
+        <h4>Durban, South Africa</h4>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1565679426333-56712e0f92e3" alt="Johannesburg" style="width:100%; border-radius:8px;">
+        <h4>Johannesburg, South Africa</h4>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1533743983669-94fa82dbaab4" alt="Pretoria" style="width:100%; border-radius:8px;">
+        <h4>Pretoria, South Africa</h4>
+      </div>
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1524471989832-31a45d9e72a5" alt="Bloemfontein" style="width:100%; border-radius:8px;">
+        <h4>Bloemfontein, South Africa</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BROWSE BY PROPERTY TYPE -->
+<section class="property-types" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title">Browse by property type</h2>
+    <div class="flex" style="gap:15px; flex-wrap:wrap;">
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1501117716987-c8f5c36b967b" alt="Hotels" style="width:100%; border-radius:8px;">
+        <p>Hotels</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1580584121240-2e8bbca102d1" alt="Apartments" style="width:100%; border-radius:8px;">
+        <p>Apartments</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1551882549-ff4d0d74a7a0" alt="Resorts" style="width:100%; border-radius:8px;">
+        <p>Resorts</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1526779259212-d60b5d1f0587" alt="Villas" style="width:100%; border-radius:8px;">
+        <p>Villas</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1562158070-7f6d42a06e2a" alt="Cabins" style="width:100%; border-radius:8px;">
+        <p>Cabins</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1598300055608-1c2f5b1e79a3" alt="Cottages" style="width:100%; border-radius:8px;">
+        <p>Cottages</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1598899134739-f4e0a8e83b96" alt="Glamping" style="width:100%; border-radius:8px;">
+        <p>Glamping</p>
+      </div>
+      <div style="flex:1 1 150px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1582719478176-8475c7f0e9f1" alt="Serviced apartments" style="width:100%; border-radius:8px;">
+        <p>Serviced apartments</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TOP UNIQUE PROPERTIES -->
+<section class="top-unique-properties" style="padding:40px 0; background-color:#f5f5f5;">
+  <div class="container">
+    <h2 class="section-title">Stay at our top unique properties</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <!-- Property 1 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="The Estuary Hotel & Spa" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>The Estuary Hotel & Spa</h4>
+          <p>Port Edward, South Africa</p>
+          <p>Rating: 7.6 – Good | 980 reviews</p>
+        </div>
+      </div>
+      <!-- Property 2 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1501117716987-c8f5c36b967b" alt="The Beach Hotel" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>The Beach Hotel</h4>
+          <p>Port Elizabeth, South Africa</p>
+          <p>Rating: 8.5 – Very Good | 1,888 reviews</p>
+        </div>
+      </div>
+      <!-- Property 3 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1562158070-7f6d42a06e2a" alt="Jozini Tiger Lodge & Spa" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Jozini Tiger Lodge & Spa by Dream Resorts</h4>
+          <p>Jozini, South Africa</p>
+          <p>Rating: 8.1 – Very Good | 978 reviews</p>
+        </div>
+      </div>
+      <!-- Property 4 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1580584121240-2e8bbca102d1" alt="Irene Country Lodge" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Irene Country Lodge, Autograph Collection</h4>
+          <p>Centurion, South Africa</p>
+          <p>Rating: 8.9 – Fabulous | 1,043 reviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKEND DEALS -->
+<section class="weekend-deals" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title">Deals for the weekend</h2>
+    <p>Save on stays for 26 September – 28 September</p>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <!-- Deal 1 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1526779259212-d60b5d1f0587" alt="Sea Castle Hotel Camps Bay" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Sea Castle Hotel Camps Bay</h4>
+          <p>Cape Town, South Africa</p>
+          <p>Rating: 8.6 – Fabulous | 750 reviews</p>
+          <p>2 nights</p>
+          <p><del>ZAR 7,290</del> <strong>ZAR 6,197</strong></p>
+        </div>
+      </div>
+      <!-- Deal 2 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1582719478176-8475c7f0e9f1" alt="Whale Away Guest House" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Whale Away Guest House</h4>
+          <p>Hermanus, South Africa</p>
+          <p>Rating: 9.1 – Superb | 101 reviews</p>
+          <p>2 nights</p>
+          <p><del>ZAR 4,900</del> <strong>ZAR 4,165</strong></p>
+        </div>
+      </div>
+      <!-- Deal 3 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1598300055608-1c2f5b1e79a3" alt="Hotel Krige" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Hotel Krige</h4>
+          <p>Stellenbosch, South Africa</p>
+          <p>Rating: 8.4 – Very Good | 1,256 reviews</p>
+          <p>2 nights</p>
+          <p><del>ZAR 7,133</del> <strong>ZAR 6,277</strong></p>
+        </div>
+      </div>
+      <!-- Deal 4 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1551882549-ff4d0d74a7a0" alt="Old Bank Hotel" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Old Bank Hotel – Lion Roars Hotels & Lodges</h4>
+          <p>Cape Town, South Africa</p>
+          <p>Rating: 8.6 – Fabulous | 1,526 reviews</p>
+          <p>2 nights</p>
+          <p><del>ZAR 4,340</del> <strong>ZAR 3,689</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- HOMES GUESTS LOVE -->
+<section class="homes-guests-love" style="padding:40px 0; background-color:#f5f5f5;">
+  <div class="container">
+    <h2 class="section-title">Homes guests love</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <!-- Home 1 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Leman Locke" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Leman Locke</h4>
+          <p>Tower Hamlets, United Kingdom, London</p>
+          <p>Rating: 8.7 – Fabulous | 697 reviews</p>
+          <p>Starting from <strong>ZAR 3,158</strong></p>
+        </div>
+      </div>
+      <!-- Home 2 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688" alt="Aparthotel Stare Miasto" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>Aparthotel Stare Miasto</h4>
+          <p>Old Town, Poland, Kraków</p>
+          <p>Rating: 8.8 – Fabulous | 3,284 reviews</p>
+          <p>Starting from <strong>ZAR 3,320</strong></p>
+        </div>
+      </div>
+      <!-- Home 3 -->
+      <div style="flex:1 1 300px; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="7Seasons Apartments Budapest" style="width:100%;">
+        <div style="padding:15px;">
+          <h4>7Seasons Apartments Budapest</h4>
+          <p>06. Terézváros, Hungary, Budapest</p>
+          <p>Rating: 8.7 – Fabulous | 10,888 reviews</p>
+          <p>Starting from <strong>ZAR 2,747</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BOOKING.COM -->
+<section class="why-booking" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title">Why Booking.com?</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap; text-align:center;">
+      <!-- Column 1 -->
+      <div style="flex:1 1 300px; padding:20px; border:1px solid #ddd; border-radius:8px;">
+        <h4>Book now, pay at the property</h4>
+        <p>FREE cancellation on most rooms</p>
+      </div>
+      <!-- Column 2 -->
+      <div style="flex:1 1 300px; padding:20px; border:1px solid #ddd; border-radius:8px;">
+        <h4>300M+ reviews from fellow travellers</h4>
+        <p>Get trusted information from guests like you</p>
+      </div>
+      <!-- Column 3 -->
+      <div style="flex:1 1 300px; padding:20px; border:1px solid #ddd; border-radius:8px;">
+        <h4>2+ million properties worldwide</h4>
+        <p>Hotels, guest houses, apartments, and more…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENIUS LOYALTY CTA -->
+<section class="genius-loyalty" style="padding:40px 0; background-color:#f5f5f5; text-align:center;">
+  <h2>Travel more, spend less</h2>
+  <p>Sign in, save money. Save 10% or more at participating properties – just look for the blue Genius label</p>
+  <div style="margin-top:20px;">
+    <a href="#" style="background-color:#003580; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; margin-right:10px;">Sign in</a>
+    <a href="#" style="background-color:#fff; color:#003580; padding:10px 20px; border:1px solid #003580; border-radius:5px; text-decoration:none;">Register</a>
+  </div>
+</section>
+
+  <!-- POPULAR WITH TRAVELLERS FROM SOUTH AFRICA -->
+<section class="popular-travel" style="padding:40px 0;">
+  <div class="container">
+    <h2 class="section-title">Popular with travellers from South Africa</h2>
+    <div class="flex" style="gap:20px; flex-wrap:wrap;">
+      <!-- Destination 1 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Cape Town" style="width:100%; border-radius:8px;">
+        <p>Cape Town hotels</p>
+      </div>
+      <!-- Destination 2 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1590451179847-2d8c2f1d3f0c" alt="Durban" style="width:100%; border-radius:8px;">
+        <p>Durban hotels</p>
+      </div>
+      <!-- Destination 3 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1575231820705-6e86f3f6e1c8" alt="Johannesburg" style="width:100%; border-radius:8px;">
+        <p>Johannesburg hotels</p>
+      </div>
+      <!-- Destination 4 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1588854337115-1a3a77c5c2ed" alt="Pretoria" style="width:100%; border-radius:8px;">
+        <p>Pretoria hotels</p>
+      </div>
+      <!-- Destination 5 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1570717929478-35a5f39c61d1" alt="Bloemfontein" style="width:100%; border-radius:8px;">
+        <p>Bloemfontein hotels</p>
+      </div>
+      <!-- Destination 6 -->
+      <div style="flex:1 1 200px; text-align:center;">
+        <img src="https://images.unsplash.com/photo-1508049355915-4977c0a3340d" alt="East London" style="width:100%; border-radius:8px;">
+        <p>East London hotels</p>
+      </div>
+      <!-- Add more destinations as needed -->
+    </div>
+  </div>
+</section>
+
+<!-- Part 5 Footer Section -->
+<footer style="background-color:#003580; color:white; padding:40px 20px; font-family: Arial, sans-serif;">
+
+  <!-- Popular with travellers from South Africa -->
+  <div>
+    <h3>Popular with travellers from South Africa</h3>
+    <ul style="columns:3; list-style:none; padding:0; margin:0;">
+      <li>Cape Town hotels</li>
+      <li>Durban hotels</li>
+      <li>Johannesburg hotels</li>
+      <li>Pretoria hotels</li>
+      <li>Bloemfontein hotels</li>
+      <li>East London hotels</li>
+      <li>Port Elizabeth hotels</li>
+      <li>Ballito hotels</li>
+      <li>Hartbeespoort hotels</li>
+      <li>George hotels</li>
+      <li>Polokwane hotels</li>
+      <li>Hermanus hotels</li>
+      <li>St Lucia hotels</li>
+      <li>Nelspruit hotels</li>
+      <li>Franschhoek hotels</li>
+      <li>Midrand hotels</li>
+      <li>Stellenbosch hotels</li>
+      <li>Newcastle hotels</li>
+      <li>Richards Bay hotels</li>
+      <li>Kempton Park hotels</li>
+      <li>Rustenburg hotels</li>
+      <li>Kimberley hotels</li>
+      <li>Knysna hotels</li>
+      <li>Beaufort West hotels</li>
+      <li>Bela-Bela hotels</li>
+    </ul>
+    <p><a href="#" style="color:#00a0e0; text-decoration:none;">Show more</a></p>
+  </div>
+
+  <hr style="border:1px solid #0057b8; margin:30px 0;">
+
+  <!-- Footer links columns -->
+  <div style="display:flex; flex-wrap:wrap; gap:40px;">
+    <div>
+      <h4>Countries</h4>
+      <ul style="list-style:none; padding:0;">
+        <li>All destinations</li>
+        <li>All flight destinations</li>
+        <li>All car hire locations</li>
+        <li>All holiday destinations</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Guides & Support</h4>
+      <ul style="list-style:none; padding:0;">
+        <li>Discover</li>
+        <li>Reviews</li>
+        <li>Discover monthly stays</li>
+        <li>Coronavirus (COVID-19) FAQs</li>
+        <li>Manage your trips</li>
+        <li>Contact Customer Service</li>
+        <li>Safety resource centre</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Booking.com Info</h4>
+      <ul style="list-style:none; padding:0;">
+        <li>Genius loyalty programme</li>
+        <li>Seasonal and holiday deals</li>
+        <li>Travel articles</li>
+        <li>Booking.com for Business</li>
+        <li>Traveller Review Awards</li>
+        <li>Car hire</li>
+        <li>Flight finder</li>
+        <li>Restaurant reservations</li>
+        <li>Booking.com for Travel Agents</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal & Company</h4>
+      <ul style="list-style:none; padding:0;">
+        <li>Terms and settings</li>
+        <li>Privacy & cookies</li>
+        <li>Terms of Service</li>
+        <li>Accessibility Statement</li>
+        <li>Partner dispute</li>
+        <li>Modern Slavery Statement</li>
+        <li>Human Rights Statement</li>
+        <li>Partners</li>
+        <li>Extranet login</li>
+        <li>Partner help</li>
+        <li>List your property</li>
+        <li>Become an affiliate</li>
+        <li>About Booking.com</li>
+        <li>How we work</li>
+        <li>Sustainability</li>
+        <li>Press centre</li>
+        <li>Careers</li>
+        <li>Investor relations</li>
+        <li>Corporate contact</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr style="border:1px solid #0057b8; margin:30px 0;">
+
+  <!-- Logos row -->
+  <div style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom:20px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Kayak_logo.svg/2560px-Kayak_logo.svg.png" alt="Kayak" style="height:40px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Priceline_logo.svg/2560px-Priceline_logo.svg.png" alt="Priceline" style="height:40px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Booking_Genius_logo.svg/1200px-Booking_Genius_logo.svg.png" alt="Genius" style="height:40px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Booking.com_logo.svg/2560px-Booking.com_logo.svg.png" alt="Booking.com" style="height:40px;">
+  </div>
+
+  <p style="text-align:center; font-size:14px; color:#cccccc; margin:10px 0;">
+    ZAR<br>
+    Booking.com is part of Booking Holdings Inc., the world leader in online travel and related services.<br>
+    &copy; 1996–2025 Booking.com™. All rights reserved.
+  </p>
+</footer>
