@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go-Global Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; color: #333; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; transition: 0.3s; }
+
+header { background-color: #003580; padding: 15px 30px; display:flex; justify-content:space-between; align-items:center; color:white; position: sticky; top:0; z-index:1000; }
+header h1 { font-size:24px; font-weight:700; }
+.nav-links { display:flex; gap:20px; }
+.nav-links a { color:white; font-weight:500; transition: 0.3s; }
+.nav-links a:hover { text-decoration: underline; }
+.auth-buttons { display:flex; gap:10px; }
+.auth-buttons button { padding:7px 15px; border:none; border-radius:4px; font-weight:600; }
+.auth-buttons .login { background-color:white; color:#003580; }
+.auth-buttons .register { background-color:#febb02; color:#003580; }
+
+.search-section { background-image:url('https://goglobal-recruitment.github.io/myproject/hero.jpg'); background-size:cover; background-position:center; padding:80px 20px; color:white; text-align:center; }
+.search-section h2 { font-size:38px; margin-bottom:15px; font-weight:700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.search-section p { font-size:18px; margin-bottom:25px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+.search-bar { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:20px; background: rgba(255,255,255,0.95); padding:15px; border-radius:8px; color:#003580; }
+.search-bar input, .search-bar select { padding:12px; font-size:16px; border:1px solid #ccc; border-radius:4px; min-width:120px; }
+.search-bar select { transition: all 0.3s; }
+.search-bar button { padding:12px 25px; font-size:16px; background-color:#febb02; border:none; border-radius:4px; font-weight:700; color:#003580; transition:0.3s; }
+.search-bar button:hover { background-color:#ffc107; transform: translateY(-2px); }
+
+.child-ages { display:flex; gap:10px; margin-top:10px; justify-content:center; flex-wrap:wrap; }
+
+h3 { margin:40px 0 20px 20px; font-size:28px; font-weight:700; }
+
+.cards-container { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; padding:0 20px 40px 20px; }
+.card { background-color:white; border-radius:8px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
+.card img { width:100%; height:180px; object-fit:cover; }
+.card-content { padding:15px; }
+.card-content h4 { font-size:18px; margin-bottom:5px; font-weight:600; }
+.card-content p { font-size:14px; margin-bottom:10px; color:#666; }
+.card-content .price { font-weight:700; color:#003580; }
+
+footer { background-color:#003580; color:white; padding:40px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+footer div { flex:1 1 200px; margin:10px; }
+footer h4 { margin-bottom:10px; font-size:16px; }
+footer a { display:block; margin-bottom:5px; color:white; font-size:14px; }
+
+@media(max-width:768px){
+    .search-bar { flex-direction: column; align-items:center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Go-Global</h1>
+    <nav class="nav-links">
+        <a href="#">Stays</a>
+        <a href="#">Flights</a>
+        <a href="#">Car Rental</a>
+        <a href="#">Attractions</a>
+        <a href="#">Airport Taxis</a>
+    </nav>
+    <div class="auth-buttons">
+        <button class="login">Sign in</button>
+        <button class="register">Register</button>
+    </div>
+</header>
+
+<section class="search-section">
+    <h2>Find your next stay</h2>
+    <p>Search low prices on hotels, homes and much more...</p>
+    <div class="search-bar">
+        <input type="text" placeholder="Destination">
+        <input type="date" value="2025-09-21">
+        <input type="date" value="2025-09-22">
+
+        <select id="adults">
+            <option value="1">1 Adult</option>
+            <option value="2" selected>2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+        </select>
+
+        <select id="children">
+            <option value="0" selected>0 Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+        </select>
+
+        <select id="rooms">
+            <option value="1" selected>1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+        </select>
+
+        <button id="searchBtn">Search</button>
+    </div>
+    <div class="child-ages" id="childAgesContainer"></div>
+</section>
+
+<h3>Deals for tonight</h3>
+<div class="cards-container">
+    <div class="card">
+        <img src="https://goglobal-recruitment.github.io/myproject/deal1.jpg" alt="Deal 1">
+        <div class="card-content">
+            <h4>Mojo Hotel & Market</h4>
+            <p>7.5 - Good · 3,671 reviews</p>
+            <p class="price">ZAR 702</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://goglobal-recruitment.github.io/myproject/deal2.jpg" alt="Deal 2">
+        <div class="card-content">
+            <h4>Habitat Aparthotel by Totalstay</h4>
+            <p>8.2 - Very Good · 3,319 reviews</p>
+            <p class="price">ZAR 721</p>
+        </div>
+    </div>
+</div>
+
+<h3>Explore South Africa</h3>
+<div class="cards-container">
+    <div class="card">
+        <img src="https://goglobal-recruitment.github.io/myproject/cape-town.jpg" alt="Cape Town">
+        <div class="card-content">
+            <h4>Cape Town</h4>
+            <p>7,440 properties</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://goglobal-recruitment.github.io/myproject/durban.jpg" alt="Durban">
+        <div class="card-content">
+            <h4>Durban</h4>
+            <p>1,981 properties</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div>
+        <h4>Company</h4>
+        <a href="#">About Go-Global</a>
+        <a href="#">Careers</a>
+        <a href="#">Press centre</a>
+    </div>
+    <div>
+        <h4>Support</h4>
+        <a href="#">Contact Customer Service</a>
+        <a href="#">Safety resource centre</a>
+    </div>
+    <div>
+        <h4>Discover</h4>
+        <a href="#">Genius loyalty programme</a>
+        <a href="#">Seasonal and holiday deals</a>
+    </div>
+    <div>
+        <h4>Partners</h4>
+        <a href="#">List your property</a>
+        <a href="#">Partner help</a>
+        <a href="#">Become an affiliate</a>
+    </div>
+</footer>
+
+<script>
+const adults = document.getElementById('adults');
+const children = document.getElementById('children');
+const rooms = document.getElementById('rooms');
+const childAgesContainer = document.getElementById('childAgesContainer');
+const searchBtn = document.getElementById('searchBtn');
+
+function renderChildAges() {
+    childAgesContainer.innerHTML = '';
+    const numChildren = parseInt(children.value);
+    for(let i=1; i<=numChildren; i++){
+        const select = document.createElement('select');
+        select.innerHTML = '<option value="0">0</option>';
+        for(let j=1; j<=17; j++){
+            select.innerHTML += `<option value="${j}">${j} yrs</option>`;
+        }
+        select.style.padding = "8px";
+        select.style.borderRadius = "4px";
+        select.style.border = "1px solid #ccc";
+        select.style.minWidth = "80px";
+        select.id = `childAge${i}`;
+        childAgesContainer.appendChild(select);
+    }
+}
+
+children.addEventListener('change', renderChildAges);
+searchBtn.addEventListener('click', () => {
+    const totalPeople = parseInt(adults.value) + parseInt(children.value);
+    if(totalPeople > rooms.value * 4){
+        alert('Max 4 guests per room. Please adjust adults, children, or rooms.');
+    } else {
+        alert('Search submitted! (Implement backend next)');
+    }
+});
+
+renderChildAges();
+</script>
+
+</body>
+</html>
