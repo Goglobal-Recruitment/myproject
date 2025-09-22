@@ -1,335 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Booking-style Mirror — Find your next stay</title>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Main stylesheet -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking.com | Hotels, Flights, Car Rentals & More</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- TOP HEADER -->
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="index.html" aria-label="Home">Booking.com</a>
 
-      <div class="header-actions">
-        <div class="header-left">
-          <span class="currency">ZAR</span>
-          <button class="ghost small" title="Help"><i class="fa-regular fa-circle-question"></i></button>
-          <a class="ghost small" href="#">List your property</a>
-        </div>
-
-        <div class="header-right">
-          <button class="outline" id="btnRegister">Register</button>
-          <button class="primary" id="btnLogin">Sign in</button>
-
-          <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><i class="fa fa-bars"></i></button>
-        </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-top">
+      <div class="logo"><a href="#">Booking.com</a></div>
+      <div class="actions">
+        <span class="currency">ZAR</span>
+        <button class="ghost">List your property</button>
+        <button class="outline">Register</button>
+        <button class="primary">Sign in</button>
       </div>
     </div>
-
-    <nav class="nav-tabs" aria-label="Primary">
-      <div class="container nav-inner">
-        <a class="tab active"><i class="fa-solid fa-bed"></i><span>Stays</span></a>
-        <a class="tab"><i class="fa-solid fa-plane"></i><span>Flights</span></a>
-        <a class="tab"><i class="fa-solid fa-car"></i><span>Car rental</span></a>
-        <a class="tab"><i class="fa-solid fa-star"></i><span>Attractions</span></a>
-        <a class="tab"><i class="fa-solid fa-taxi"></i><span>Airport taxis</span></a>
-      </div>
+    <nav class="nav-tabs container">
+      <a href="#" class="active"><i class="fa-solid fa-bed"></i> Stays</a>
+      <a href="#"><i class="fa-solid fa-plane"></i> Flights</a>
+      <a href="#"><i class="fa-solid fa-car"></i> Car rental</a>
+      <a href="#"><i class="fa-solid fa-star"></i> Attractions</a>
+      <a href="#"><i class="fa-solid fa-taxi"></i> Airport taxis</a>
     </nav>
   </header>
 
-  <!-- MOBILE SIDEBAR (hidden on desktop) -->
-  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-    <div class="drawer-top">
-      <button class="close-drawer" id="closeDrawer"><i class="fa fa-times"></i></button>
-    </div>
-    <ul class="drawer-links">
-      <li><a href="#"><i class="fa-solid fa-bed"></i> Stays</a></li>
-      <li><a href="#"><i class="fa-solid fa-plane"></i> Flights</a></li>
-      <li><a href="#"><i class="fa-solid fa-car"></i> Car rental</a></li>
-      <li><a href="#"><i class="fa-solid fa-star"></i> Attractions</a></li>
-      <li><a href="#"><i class="fa-solid fa-taxi"></i> Airport taxis</a></li>
-      <li><a href="#" id="drawerRegister">Register</a></li>
-      <li><a href="#" id="drawerLogin">Sign in</a></li>
-    </ul>
-  </aside>
-
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <h1>Find your next stay</h1>
-        <p>Search deals on hotels, homes and much more — fast, simple and secure.</p>
+    <div class="container hero-content">
+      <h1>Find your next stay</h1>
+      <p>Search deals on hotels, homes, and much more...</p>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="search-box container">
+    <form>
+      <input type="text" placeholder="Where are you going?">
+      <input type="date" placeholder="Check-in">
+      <input type="date" placeholder="Check-out">
+      <select>
+        <option>2 adults</option>
+        <option>1 adult</option>
+        <option>3 adults</option>
+      </select>
+      <button type="submit" class="primary"><i class="fa fa-search"></i> Search</button>
+    </form>
+  </section>
+
+  <!-- Trending -->
+  <section class="container section">
+    <h2>Trending destinations</h2>
+    <div class="grid-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?w=800" alt="Cape Town">
+        <h3>Cape Town</h3><p>1,234 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1583267745369-7aa4e0a2b7aa?w=800" alt="Johannesburg">
+        <h3>Johannesburg</h3><p>856 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600697395542-f1f1a9f842f5?w=800" alt="Durban">
+        <h3>Durban</h3><p>642 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1547472443-fb3fba7f3c70?w=800" alt="Stellenbosch">
+        <h3>Stellenbosch</h3><p>298 properties</p>
       </div>
     </div>
   </section>
 
-  <!-- SEARCH CARD (overlapping hero) -->
-  <section class="search-card container" aria-labelledby="searchTitle">
-    <div class="search-card-inner">
-      <form id="searchForm">
-        <div class="field">
-          <label for="destination">Where are you going?</label>
-          <div class="input-icon">
-            <i class="fa-solid fa-location-dot"></i>
-            <input id="destination" name="destination" type="text" placeholder="Destination (city, hotel, landmark)">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="checkin">Check-in</label>
-          <input id="checkin" name="checkin" type="date">
-        </div>
-
-        <div class="field">
-          <label for="checkout">Check-out</label>
-          <input id="checkout" name="checkout" type="date">
-        </div>
-
-        <div class="field">
-          <label for="guests">Guests</label>
-          <select id="guests" name="guests">
-            <option>2 adults</option>
-            <option>1 adult</option>
-            <option>3 adults</option>
-            <option>4 adults</option>
-          </select>
-        </div>
-
-        <div class="field actions">
-          <button type="submit" class="primary big"><i class="fa fa-search"></i> Search</button>
-        </div>
-      </form>
+  <!-- Property Types -->
+  <section class="container section">
+    <h2>Browse by property type</h2>
+    <div class="grid-5">
+      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800"><h4>Hotels</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800"><h4>Apartments</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1576675784385-ccc38f3f5af1?w=800"><h4>Resorts</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?w=800"><h4>Villas</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800"><h4>Cabins</h4></div>
     </div>
   </section>
 
-  <!-- SEARCH RESULTS -->
-  <section id="results" class="container results-section" hidden>
-    <h2>Search Results</h2>
-    <div class="grid cards-grid" id="properties">
-      <!-- JS will populate a few demo cards if needed (fallback static shown) -->
-      <article class="property-card">
-        <figure class="thumb">
-          <img src="images/luxury-resort.jpg" alt="Luxury Resort">
-          <span class="badge">Hotel</span>
-        </figure>
-        <div class="card-body">
-          <h3>Luxury Resort &amp; Spa</h3>
-          <div class="meta">
-            <span class="rating"><i class="fa fa-star"></i> 4.5</span>
-            <span class="location">Cape Town, South Africa</span>
-          </div>
-          <p class="desc">5-star resort with ocean views and private beach access.</p>
-          <div class="card-footer">
-            <div class="price">
-              <div class="amount">ZAR 299</div>
-              <div class="per">per night</div>
-            </div>
-            <button class="primary small">Book now</button>
-          </div>
+  <!-- Deals -->
+  <section class="container section">
+    <h2>Deals and offers</h2>
+    <div class="grid-2">
+      <div class="deal">
+        <img src="https://images.unsplash.com/photo-1519821172141-b5d8c51b37a5?w=1000">
+        <div class="deal-overlay">
+          <h3>Weekend Deals</h3>
+          <p>Save up to 30% on weekend getaways</p>
         </div>
-      </article>
-
-      <!-- Add 2 more sample cards -->
-      <article class="property-card"> 
-        <figure class="thumb">
-          <img src="images/modern-hotel.jpg" alt="Modern Hotel">
-          <span class="badge">Hotel</span>
-        </figure>
-        <div class="card-body">
-          <h3>Modern City Hotel</h3>
-          <div class="meta">
-            <span class="rating"><i class="fa fa-star"></i> 4.2</span>
-            <span class="location">Johannesburg, South Africa</span>
-          </div>
-          <p class="desc">Contemporary hotel in the city centre, close to attractions.</p>
-          <div class="card-footer">
-            <div class="price">
-              <div class="amount">ZAR 199</div>
-              <div class="per">per night</div>
-            </div>
-            <button class="primary small">Book now</button>
-          </div>
+      </div>
+      <div class="deal">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000">
+        <div class="deal-overlay">
+          <h3>Last Minute</h3>
+          <p>Book tonight, save more</p>
         </div>
-      </article>
-
-      <article class="property-card">
-        <figure class="thumb">
-          <img src="images/boutique-hotel.jpg" alt="Boutique Hotel">
-          <span class="badge">Hotel</span>
-        </figure>
-        <div class="card-body">
-          <h3>Boutique Hotel</h3>
-          <div class="meta">
-            <span class="rating"><i class="fa fa-star"></i> 4.7</span>
-            <span class="location">Stellenbosch, South Africa</span>
-          </div>
-          <p class="desc">Charming boutique hotel in the heart of wine country.</p>
-          <div class="card-footer">
-            <div class="price">
-              <div class="amount">ZAR 349</div>
-              <div class="per">per night</div>
-            </div>
-            <button class="primary small">Book now</button>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
   </section>
 
-  <!-- TRENDING + PROPERTY TYPES + DEALS -->
-  <main class="container main-content">
-    <section class="section">
-      <h2>Trending destinations</h2>
-      <div class="grid grid-4">
-        <div class="card-spot"><img src="images/cape-town.jpg" alt=""><h3>Cape Town</h3><p>1,234 properties</p></div>
-        <div class="card-spot"><img src="images/johannesburg.jpg" alt=""><h3>Johannesburg</h3><p>856 properties</p></div>
-        <div class="card-spot"><img src="images/durban.jpg" alt=""><h3>Durban</h3><p>642 properties</p></div>
-        <div class="card-spot"><img src="images/stellenbosch.jpg" alt=""><h3>Stellenbosch</h3><p>298 properties</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Browse by property type</h2>
-      <div class="grid grid-5">
-        <div class="type-card"><img src="images/hotels.jpg" alt=""><h4>Hotels</h4><p>573,893 hotels</p></div>
-        <div class="type-card"><img src="images/apartments.jpg" alt=""><h4>Apartments</h4><p>869,102 apartments</p></div>
-        <div class="type-card"><img src="images/resorts.jpg" alt=""><h4>Resorts</h4><p>17,468 resorts</p></div>
-        <div class="type-card"><img src="images/villas.jpg" alt=""><h4>Villas</h4><p>424,345 villas</p></div>
-        <div class="type-card"><img src="images/cabins.jpg" alt=""><h4>Cabins</h4><p>35,642 cabins</p></div>
-      </div>
-    </section>
-
-    <section class="section deals">
-      <h2>Deals and offers</h2>
-      <div class="grid grid-2">
-        <div class="deal-card">
-          <img src="images/weekend-deals.jpg" alt="">
-          <div class="deal-content"><h3>Weekend Deals</h3><p>Save up to 30% on weekend getaways</p><button class="primary">Explore deals</button></div>
-        </div>
-        <div class="deal-card">
-          <img src="images/last-minute.jpg" alt="">
-          <div class="deal-content"><h3>Last Minute</h3><p>Book tonight, save more</p><button class="primary">Find deals</button></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container footer-grid">
-      <div><h4>Support</h4><ul><li><a href="#">Customer Service</a></li><li><a href="#">Partner Help</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#">Customer Service</a></li><li><a href="#">Partner Help</a></li></ul></div>
       <div><h4>Discover</h4><ul><li><a href="#">Loyalty program</a></li><li><a href="#">Travel articles</a></li></ul></div>
-      <div><h4>Terms &amp; settings</h4><ul><li><a href="#">Privacy & cookies</a></li><li><a href="#">Terms & conditions</a></li></ul></div>
-      <div><h4>Partners</h4><ul><li><a href="#">List your property</a></li><li><a href="#">Extranet</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="#">About Booking International</a></li><li><a href="#">Investor relations</a></li></ul></div>
+      <div><h4>Terms</h4><ul><li><a href="#">Privacy & cookies</a></li><li><a href="#">Terms & conditions</a></li></ul></div>
+      <div><h4>Partners</h4><ul><li><a href="#">Extranet login</a></li><li><a href="#">List your property</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#">About us</a></li><li><a href="#">Investor relations</a></li></ul></div>
     </div>
-    <div class="container copyright">© 1996–2024 Booking International™. All rights reserved.</div>
+    <p class="copyright">© 1996–2024 Booking International™. All rights reserved.</p>
   </footer>
 
-  <!-- LOGIN / REGISTER MODALS -->
-  <div class="modal" id="modalLogin" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-      <button class="modal-close" data-close>&times;</button>
-      <h3 id="loginTitle">Sign in</h3>
-      <form class="modal-form" id="loginForm">
-        <label>Email address<input type="email" name="email" required></label>
-        <label>Password<input type="password" name="password" required></label>
-        <button class="primary" type="submit">Sign in</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="modalRegister" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
-      <button class="modal-close" data-close>&times;</button>
-      <h3 id="registerTitle">Create your account</h3>
-      <form class="modal-form" id="registerForm">
-        <label>Email address<input type="email" name="email" required></label>
-        <label>Password<input type="password" name="password" required></label>
-        <button class="primary" type="submit">Create account</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    // Mobile drawer
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const closeDrawer = document.getElementById('closeDrawer');
-    menuToggle?.addEventListener('click', () => {
-      mobileDrawer?.setAttribute('aria-hidden', 'false');
-      mobileDrawer?.classList.add('open');
-    });
-    closeDrawer?.addEventListener('click', () => {
-      mobileDrawer?.setAttribute('aria-hidden', 'true');
-      mobileDrawer?.classList.remove('open');
-    });
-
-    // Modals
-    const modalLogin = document.getElementById('modalLogin');
-    const modalRegister = document.getElementById('modalRegister');
-
-    function openModal(modal) {
-      modal.setAttribute('aria-hidden', 'false');
-      modal.classList.add('open');
-    }
-    function closeModal(modal) {
-      modal.setAttribute('aria-hidden', 'true');
-      modal.classList.remove('open');
-    }
-
-    document.getElementById('btnLogin')?.addEventListener('click', () => openModal(modalLogin));
-    document.getElementById('btnRegister')?.addEventListener('click', () => openModal(modalRegister));
-    document.querySelectorAll('[data-close]').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const panel = e.target.closest('.modal');
-        if (panel) closeModal(panel);
-      });
-    });
-
-    // Drawer hook to open modals from drawer
-    document.getElementById('drawerLogin')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeDrawer?.click();
-      openModal(modalLogin);
-    });
-    document.getElementById('drawerRegister')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeDrawer?.click();
-      openModal(modalRegister);
-    });
-
-    // Clicking on overlay closes modal/drawer
-    document.querySelectorAll('.modal, .mobile-drawer').forEach(el => {
-      el.addEventListener('click', e => {
-        if (e.target === el) {
-          el.classList.remove('open');
-          el.setAttribute('aria-hidden', 'true');
-        }
-      });
-    });
-
-    // Search form: reveal demo results (static)
-    document.getElementById('searchForm')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('results').hidden = false;
-      document.getElementById('results').scrollIntoView({behavior:'smooth'});
-    });
-
-    // Prevent form submission in modals (demo)
-    document.getElementById('loginForm')?.addEventListener('submit', e => { e.preventDefault(); alert('Demo: login submitted'); closeModal(modalLogin); });
-    document.getElementById('registerForm')?.addEventListener('submit', e => { e.preventDefault(); alert('Demo: account created'); closeModal(modalRegister); });
-  </script>
 </body>
 </html>
