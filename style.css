@@ -1,132 +1,124 @@
-/* =========
-   STYLE (drop-in)
-   ========= */
-:root{
-  --blue:#003580;
-  --blue-600:#0071c2;
-  --muted:#6b7280;
-  --yellow:#ffd24d;
-  --bg:#f6f8fb;
-  --radius:10px;
-  --maxw:1200px;
-  --gap:18px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#0b1220; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
-.container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking.com | Hotels, Flights, Car Rentals & More</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
 
-/* HEADER */
-.site-header{background:var(--blue); color:#fff; box-shadow:0 3px 8px rgba(0,0,0,0.08)}
-.header-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{font-weight:700;font-size:20px;color:#fff; text-decoration:none}
-.header-actions{display:flex;gap:12px;align-items:center}
-.header-left{display:flex;gap:10px;align-items:center}
-.header-right{display:flex;gap:10px;align-items:center}
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-top">
+      <div class="logo"><a href="#">Booking.com</a></div>
+      <div class="actions">
+        <span class="currency">ZAR</span>
+        <button class="ghost">List your property</button>
+        <button class="outline">Register</button>
+        <button class="primary">Sign in</button>
+      </div>
+    </div>
+    <nav class="nav-tabs container">
+      <a href="#" class="active"><i class="fa-solid fa-bed"></i> Stays</a>
+      <a href="#"><i class="fa-solid fa-plane"></i> Flights</a>
+      <a href="#"><i class="fa-solid fa-car"></i> Car rental</a>
+      <a href="#"><i class="fa-solid fa-star"></i> Attractions</a>
+      <a href="#"><i class="fa-solid fa-taxi"></i> Airport taxis</a>
+    </nav>
+  </header>
 
-/* Buttons */
-button, a.ghost{cursor:pointer}
-.primary{background:var(--blue-600);border:0;color:#fff;padding:10px 14px;border-radius:8px;font-weight:600}
-.primary:hover{background:#005999}
-.outline{background:#fff;color:var(--blue-600);padding:8px 12px;border-radius:8px;border:2px solid rgba(255,255,255,0.08);font-weight:600}
-.ghost{background:transparent;color:#fff;padding:8px;border-radius:8px}
-.small{font-size:0.88rem}
-.menu-toggle{display:none;background:transparent;border:0;color:#fff;padding:8px}
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Find your next stay</h1>
+      <p>Search deals on hotels, homes, and much more...</p>
+    </div>
+  </section>
 
-/* NAV */
-.nav-tabs{background:#002a57}
-.nav-inner{display:flex;gap:18px;padding:10px 18px;align-items:center;overflow:auto}
-.tab{color:#fff;padding:8px 12px;border-radius:8px;display:flex;gap:8px;align-items:center;font-weight:600}
-.tab.active{background:rgba(255,255,255,0.08);box-shadow:inset 0 -3px 0 rgba(255,255,255,0.12)}
+  <!-- Search -->
+  <section class="search-box container">
+    <form>
+      <input type="text" placeholder="Where are you going?">
+      <input type="date" placeholder="Check-in">
+      <input type="date" placeholder="Check-out">
+      <select>
+        <option>2 adults</option>
+        <option>1 adult</option>
+        <option>3 adults</option>
+      </select>
+      <button type="submit" class="primary"><i class="fa fa-search"></i> Search</button>
+    </form>
+  </section>
 
-/* HERO */
-.hero{position:relative;background-image:url('images/hero-bg.jpg');background-size:cover;background-position:center;height:320px;display:flex;align-items:center}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25))}
-.hero-inner{position:relative;z-index:2;width:100%;padding:40px 0}
-.hero-text{text-align:left;color:#fff;max-width:720px}
-.hero-text h1{font-size:36px;line-height:1.05;margin-bottom:8px}
-.hero-text p{font-size:15px;color:rgba(255,255,255,0.95)}
+  <!-- Trending -->
+  <section class="container section">
+    <h2>Trending destinations</h2>
+    <div class="grid-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?w=800" alt="Cape Town">
+        <h3>Cape Town</h3><p>1,234 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1583267745369-7aa4e0a2b7aa?w=800" alt="Johannesburg">
+        <h3>Johannesburg</h3><p>856 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600697395542-f1f1a9f842f5?w=800" alt="Durban">
+        <h3>Durban</h3><p>642 properties</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1547472443-fb3fba7f3c70?w=800" alt="Stellenbosch">
+        <h3>Stellenbosch</h3><p>298 properties</p>
+      </div>
+    </div>
+  </section>
 
-/* SEARCH CARD */
-.search-card{position:relative;transform:translateY(-60px);margin-bottom:-60px}
-.search-card-inner{background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(3,17,30,0.08);padding:18px}
-#searchForm{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:14px;align-items:end}
-.field{display:flex;flex-direction:column}
-.field label{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
-.input-icon{position:relative}
-.input-icon i{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted)}
-input[type="text"], input[type="date"], select{padding:10px 12px;padding-left:36px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px;background:#fff}
-.search-btn{grid-column:5}
-.primary.big{padding:12px 20px;font-size:15px;border-radius:10px}
+  <!-- Property Types -->
+  <section class="container section">
+    <h2>Browse by property type</h2>
+    <div class="grid-5">
+      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800"><h4>Hotels</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800"><h4>Apartments</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1576675784385-ccc38f3f5af1?w=800"><h4>Resorts</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?w=800"><h4>Villas</h4></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800"><h4>Cabins</h4></div>
+    </div>
+  </section>
 
-/* RESULTS / CARDS */
-.results-section{padding-top:32px;padding-bottom:40px}
-.grid{display:grid;gap:18px}
-.cards-grid{grid-template-columns:repeat(3,1fr)}
-.property-card{background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #eef2f6}
-.property-card .thumb{position:relative}
-.property-card img{width:100%;height:190px;object-fit:cover}
-.badge{position:absolute;right:12px;top:12px;background:#13a44b;color:#fff;padding:6px 8px;border-radius:6px;font-weight:700;font-size:12px}
-.card-body{padding:14px;display:flex;flex-direction:column;gap:10px}
-.card-body h3{font-size:16px;margin:0}
-.meta{display:flex;gap:10px;color:var(--muted);font-size:13px;align-items:center}
-.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-.price .amount{font-weight:800;font-size:18px}
-.price .per{font-size:12px;color:var(--muted)}
+  <!-- Deals -->
+  <section class="container section">
+    <h2>Deals and offers</h2>
+    <div class="grid-2">
+      <div class="deal">
+        <img src="https://images.unsplash.com/photo-1519821172141-b5d8c51b37a5?w=1000">
+        <div class="deal-overlay">
+          <h3>Weekend Deals</h3>
+          <p>Save up to 30% on weekend getaways</p>
+        </div>
+      </div>
+      <div class="deal">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000">
+        <div class="deal-overlay">
+          <h3>Last Minute</h3>
+          <p>Book tonight, save more</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* TRENDING / TYPES / DEALS */
-.section{margin:60px 0}
-.grid-4{grid-template-columns:repeat(4,1fr)}
-.grid-5{grid-template-columns:repeat(5,1fr)}
-.grid-2{grid-template-columns:repeat(2,1fr)}
-.card-spot, .type-card{background:#fff;padding:10px;border-radius:10px;border:1px solid #eef2f6;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-.card-spot img, .type-card img{height:120px;width:100%;object-fit:cover;border-radius:8px}
-.deal-card{position:relative;border-radius:10px;overflow:hidden;border:1px solid #eef2f6}
-.deal-card img{width:100%;height:220px;object-fit:cover}
-.deal-content{position:absolute;left:12px;bottom:12px;color:#fff}
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><h4>Support</h4><ul><li><a href="#">Customer Service</a></li><li><a href="#">Partner Help</a></li></ul></div>
+      <div><h4>Discover</h4><ul><li><a href="#">Loyalty program</a></li><li><a href="#">Travel articles</a></li></ul></div>
+      <div><h4>Terms</h4><ul><li><a href="#">Privacy & cookies</a></li><li><a href="#">Terms & conditions</a></li></ul></div>
+      <div><h4>Partners</h4><ul><li><a href="#">Extranet login</a></li><li><a href="#">List your property</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#">About us</a></li><li><a href="#">Investor relations</a></li></ul></div>
+    </div>
+    <p class="copyright">© 1996–2024 Booking International™. All rights reserved.</p>
+  </footer>
 
-/* FOOTER */
-.site-footer{background:#003580;color:#fff;padding:36px 0;margin-top:60px}
-.footer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.site-footer h4{margin-bottom:10px}
-.site-footer a{color:#dbe8ff;text-decoration:none}
-.site-footer a:hover{text-decoration:underline}
-.copyright{padding:18px 0;color:#cde0ff;text-align:center;font-size:13px}
-
-/* MODAL */
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);opacity:0;pointer-events:none;transition:all .25s}
-.modal.open{opacity:1;pointer-events:auto}
-.modal-panel{background:#fff;padding:20px;border-radius:12px;min-width:320px;max-width:420px;position:relative;box-shadow:0 20px 40px rgba(3,17,30,0.2)}
-.modal-close{position:absolute;right:10px;top:10px;border:0;background:transparent;font-size:22px;cursor:pointer}
-.modal-form{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.modal-form label{display:flex;flex-direction:column;font-size:13px;color:#333}
-.modal-form input{padding:10px;border-radius:8px;border:1px solid #e6e9ef}
-
-/* MOBILE / RESPONSIVE */
-@media (max-width: 980px) {
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-  .grid-5{grid-template-columns:repeat(2,1fr)}
-  .nav-inner{overflow:auto}
-  #searchForm{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
-  .search-card{transform:none;margin-top:18px}
-  .search-card-inner{padding:14px}
-  .menu-toggle{display:inline-block}
-  .header-right .outline, .header-right .primary {display:none}
-  .cards-grid{grid-template-columns:1fr; gap:16px}
-}
-
-@media (max-width: 520px) {
-  .hero{height:220px}
-  .hero-text h1{font-size:22px}
-  .grid-2,.grid{grid-template-columns:1fr}
-  #searchForm{grid-template-columns:1fr;gap:12px}
-  .search-btn{grid-column:auto}
-}
-
-/* MOBILE DRAWER */
-.mobile-drawer{position:fixed;right:-100%;top:0;bottom:0;width:270px;background:#fff;box-shadow:-10px 0 40px rgba(3,17,30,0.12);z-index:60;transition:all .25s;padding:18px}
-.mobile-drawer.open{right:0}
-.drawer-top{display:flex;justify-content:flex-end}
-.drawer-links{list-style:none;padding-top:10px}
-.drawer-links li{margin:12px 0}
-.drawer-links a{color:#0b1220;text-decoration:none;font-weight:600}
+</body>
+</html>
