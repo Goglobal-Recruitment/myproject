@@ -3,130 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking.com | Hotels, Flights, Car Rentals & More</title>
+  <title>TravelBooking - Your Hotel & Travel Hub</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-top">
-      <div class="logo"><a href="#">Booking.com</a></div>
-      <div class="actions">
-        <span class="currency">ZAR</span>
-        <button class="ghost">List your property</button>
-        <button class="outline">Register</button>
-        <button class="primary">Sign in</button>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">TravelBooking</div>
+      <nav>
+        <ul>
+          <li><a href="#">Stays</a></li>
+          <li><a href="#">Flights</a></li>
+          <li><a href="#">Car Rentals</a></li>
+          <li><a href="#">Attractions</a></li>
+          <li><a href="#">Airport Taxis</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="login-btn">Login</button>
+        <button class="register-btn">Sign Up</button>
       </div>
     </div>
-    <nav class="nav-tabs container">
-      <a href="#" class="active"><i class="fa-solid fa-bed"></i> Stays</a>
-      <a href="#"><i class="fa-solid fa-plane"></i> Flights</a>
-      <a href="#"><i class="fa-solid fa-car"></i> Car rental</a>
-      <a href="#"><i class="fa-solid fa-star"></i> Attractions</a>
-      <a href="#"><i class="fa-solid fa-taxi"></i> Airport taxis</a>
-    </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO / SEARCH -->
   <section class="hero">
     <div class="container hero-content">
       <h1>Find your next stay</h1>
-      <p>Search deals on hotels, homes, and much more...</p>
-    </div>
-  </section>
-
-  <!-- Search Box -->
-  <section class="search-box container">
-    <form>
-      <input type="text" placeholder="Where are you going?">
-      <input type="date">
-      <input type="date">
-      <div class="guest-select">
+      <p>Search hotels, homes, and much more...</p>
+      <form class="search-form">
+        <input type="text" placeholder="Destination, property name..." />
+        <input type="date" />
+        <input type="date" />
         <select>
-          <option>2 adults</option>
-          <option>1 adult</option>
-          <option>3 adults</option>
-          <option>4 adults</option>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+          <option>3 Guests</option>
         </select>
-        <select>
-          <option>0 children</option>
-          <option>1 child</option>
-          <option>2 children</option>
-          <option>3 children</option>
-        </select>
-        <select>
-          <option>1 room</option>
-          <option>2 rooms</option>
-          <option>3 rooms</option>
-        </select>
-      </div>
-      <button type="submit" class="primary"><i class="fa fa-search"></i> Search</button>
-    </form>
+        <button type="submit">Search</button>
+      </form>
+    </div>
   </section>
 
-  <!-- Trending Destinations -->
-  <section class="destinations container section">
-    <h2>Trending destinations</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&q=80&w=800" alt="Cape Town">
-        <div class="card-body"><h3>Cape Town</h3><p>1,234 properties</p></div>
+  <!-- DEALS -->
+  <section class="deals container">
+    <h2>Top Deals</h2>
+    <div class="deal-cards">
+      <div class="deal-card">
+        <img src="images/deal1.jpg" alt="Deal 1">
+        <div class="deal-info">
+          <h3>Grand Hotel</h3>
+          <p>Paris, France</p>
+          <span class="price">$199/night</span>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1583267745369-7aa4e0a2b7aa?auto=format&fit=crop&q=80&w=800" alt="Johannesburg">
-        <div class="card-body"><h3>Johannesburg</h3><p>856 properties</p></div>
+      <div class="deal-card">
+        <img src="images/deal2.jpg" alt="Deal 2">
+        <div class="deal-info">
+          <h3>Sunny Resort</h3>
+          <p>Maldives</p>
+          <span class="price">$299/night</span>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600697395542-f1f1a9f842f5?auto=format&fit=crop&q=80&w=800" alt="Durban">
-        <div class="card-body"><h3>Durban</h3><p>642 properties</p></div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1547472443-fb3fba7f3c70?auto=format&fit=crop&q=80&w=800" alt="Stellenbosch">
-        <div class="card-body"><h3>Stellenbosch</h3><p>298 properties</p></div>
+      <div class="deal-card">
+        <img src="images/deal3.jpg" alt="Deal 3">
+        <div class="deal-info">
+          <h3>City Apartment</h3>
+          <p>New York, USA</p>
+          <span class="price">$149/night</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Property Types -->
-  <section class="destinations container section">
-    <h2>Browse by property type</h2>
-    <div class="card-grid">
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80" alt="Hotels"><div class="card-body"><h3>Hotels</h3></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&auto=format&fit=crop&q=80" alt="Apartments"><div class="card-body"><h3>Apartments</h3></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1576675784385-ccc38f3f5af1?w=800&auto=format&fit=crop&q=80" alt="Resorts"><div class="card-body"><h3>Resorts</h3></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?w=800&auto=format&fit=crop&q=80" alt="Villas"><div class="card-body"><h3>Villas</h3></div></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800&auto=format&fit=crop&q=80" alt="Cabins"><div class="card-body"><h3>Cabins</h3></div></div>
-    </div>
-  </section>
-
-  <!-- Deals -->
-  <section class="deals container section">
-    <h2>Deals and offers</h2>
-    <div class="card-grid">
-      <div class="deal">
-        <img src="https://images.unsplash.com/photo-1519821172141-b5d8c51b37a5?w=1000&auto=format&fit=crop&q=80" alt="Weekend Deals">
-        <div class="deal-overlay"><h3>Weekend Deals</h3><p>Save up to 30% on weekend getaways</p></div>
+  <!-- DESTINATIONS -->
+  <section class="destinations container">
+    <h2>Popular Destinations</h2>
+    <div class="destination-cards">
+      <div class="destination-card">
+        <img src="images/destination1.jpg" alt="Paris">
+        <h4>Paris</h4>
       </div>
-      <div class="deal">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&auto=format&fit=crop&q=80" alt="Last Minute">
-        <div class="deal-overlay"><h3>Last Minute</h3><p>Book tonight, save more</p></div>
+      <div class="destination-card">
+        <img src="images/destination2.jpg" alt="Tokyo">
+        <h4>Tokyo</h4>
+      </div>
+      <div class="destination-card">
+        <img src="images/destination3.jpg" alt="Dubai">
+        <h4>Dubai</h4>
+      </div>
+      <div class="destination-card">
+        <img src="images/destination4.jpg" alt="Sydney">
+        <h4>Sydney</h4>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- PROPERTY TYPES -->
+  <section class="property-types container">
+    <h2>Browse by Property Type</h2>
+    <div class="property-cards">
+      <div class="property-card">
+        <img src="images/property1.jpg" alt="Hotels">
+        <h4>Hotels</h4>
+      </div>
+      <div class="property-card">
+        <img src="images/property2.jpg" alt="Apartments">
+        <h4>Apartments</h4>
+      </div>
+      <div class="property-card">
+        <img src="images/property3.jpg" alt="Resorts">
+        <h4>Resorts</h4>
+      </div>
+      <div class="property-card">
+        <img src="images/property4.jpg" alt="Villas">
+        <h4>Villas</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div><h4>Support</h4><ul><li><a href="#">Customer Service</a></li><li><a href="#">Partner Help</a></li></ul></div>
-      <div><h4>Discover</h4><ul><li><a href="#">Loyalty program</a></li><li><a href="#">Travel articles</a></li></ul></div>
-      <div><h4>Terms</h4><ul><li><a href="#">Privacy & cookies</a></li><li><a href="#">Terms & conditions</a></li></ul></div>
-      <div><h4>Partners</h4><ul><li><a href="#">Extranet login</a></li><li><a href="#">List your property</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="#">About us</a></li><li><a href="#">Investor relations</a></li></ul></div>
+    <div class="container footer-content">
+      <div class="footer-logo">TravelBooking</div>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy & Cookie Statement</a>
+      </div>
+      <p>© 2025 TravelBooking. All rights reserved.</p>
     </div>
-    <p class="copyright">© 1996–2024 Booking International™. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
