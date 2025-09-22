@@ -37,73 +37,81 @@
     </div>
   </section>
 
-  <!-- Search -->
+  <!-- Search Box -->
   <section class="search-box container">
     <form>
       <input type="text" placeholder="Where are you going?">
-      <input type="date" placeholder="Check-in">
-      <input type="date" placeholder="Check-out">
-      <select>
-        <option>2 adults</option>
-        <option>1 adult</option>
-        <option>3 adults</option>
-      </select>
+      <input type="date">
+      <input type="date">
+      <div class="guest-select">
+        <select>
+          <option>2 adults</option>
+          <option>1 adult</option>
+          <option>3 adults</option>
+          <option>4 adults</option>
+        </select>
+        <select>
+          <option>0 children</option>
+          <option>1 child</option>
+          <option>2 children</option>
+          <option>3 children</option>
+        </select>
+        <select>
+          <option>1 room</option>
+          <option>2 rooms</option>
+          <option>3 rooms</option>
+        </select>
+      </div>
       <button type="submit" class="primary"><i class="fa fa-search"></i> Search</button>
     </form>
   </section>
 
-  <!-- Trending -->
-  <section class="container section">
+  <!-- Trending Destinations -->
+  <section class="destinations container section">
     <h2>Trending destinations</h2>
-    <div class="grid-4">
+    <div class="card-grid">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?w=800" alt="Cape Town">
-        <h3>Cape Town</h3><p>1,234 properties</p>
+        <img src="https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&q=80&w=800" alt="Cape Town">
+        <div class="card-body"><h3>Cape Town</h3><p>1,234 properties</p></div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1583267745369-7aa4e0a2b7aa?w=800" alt="Johannesburg">
-        <h3>Johannesburg</h3><p>856 properties</p>
+        <img src="https://images.unsplash.com/photo-1583267745369-7aa4e0a2b7aa?auto=format&fit=crop&q=80&w=800" alt="Johannesburg">
+        <div class="card-body"><h3>Johannesburg</h3><p>856 properties</p></div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600697395542-f1f1a9f842f5?w=800" alt="Durban">
-        <h3>Durban</h3><p>642 properties</p>
+        <img src="https://images.unsplash.com/photo-1600697395542-f1f1a9f842f5?auto=format&fit=crop&q=80&w=800" alt="Durban">
+        <div class="card-body"><h3>Durban</h3><p>642 properties</p></div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1547472443-fb3fba7f3c70?w=800" alt="Stellenbosch">
-        <h3>Stellenbosch</h3><p>298 properties</p>
+        <img src="https://images.unsplash.com/photo-1547472443-fb3fba7f3c70?auto=format&fit=crop&q=80&w=800" alt="Stellenbosch">
+        <div class="card-body"><h3>Stellenbosch</h3><p>298 properties</p></div>
       </div>
     </div>
   </section>
 
   <!-- Property Types -->
-  <section class="container section">
+  <section class="destinations container section">
     <h2>Browse by property type</h2>
-    <div class="grid-5">
-      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800"><h4>Hotels</h4></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800"><h4>Apartments</h4></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1576675784385-ccc38f3f5af1?w=800"><h4>Resorts</h4></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?w=800"><h4>Villas</h4></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800"><h4>Cabins</h4></div>
+    <div class="card-grid">
+      <div class="card"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80" alt="Hotels"><div class="card-body"><h3>Hotels</h3></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&auto=format&fit=crop&q=80" alt="Apartments"><div class="card-body"><h3>Apartments</h3></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1576675784385-ccc38f3f5af1?w=800&auto=format&fit=crop&q=80" alt="Resorts"><div class="card-body"><h3>Resorts</h3></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?w=800&auto=format&fit=crop&q=80" alt="Villas"><div class="card-body"><h3>Villas</h3></div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800&auto=format&fit=crop&q=80" alt="Cabins"><div class="card-body"><h3>Cabins</h3></div></div>
     </div>
   </section>
 
   <!-- Deals -->
-  <section class="container section">
+  <section class="deals container section">
     <h2>Deals and offers</h2>
-    <div class="grid-2">
+    <div class="card-grid">
       <div class="deal">
-        <img src="https://images.unsplash.com/photo-1519821172141-b5d8c51b37a5?w=1000">
-        <div class="deal-overlay">
-          <h3>Weekend Deals</h3>
-          <p>Save up to 30% on weekend getaways</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1519821172141-b5d8c51b37a5?w=1000&auto=format&fit=crop&q=80" alt="Weekend Deals">
+        <div class="deal-overlay"><h3>Weekend Deals</h3><p>Save up to 30% on weekend getaways</p></div>
       </div>
       <div class="deal">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000">
-        <div class="deal-overlay">
-          <h3>Last Minute</h3>
-          <p>Book tonight, save more</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&auto=format&fit=crop&q=80" alt="Last Minute">
+        <div class="deal-overlay"><h3>Last Minute</h3><p>Book tonight, save more</p></div>
       </div>
     </div>
   </section>
